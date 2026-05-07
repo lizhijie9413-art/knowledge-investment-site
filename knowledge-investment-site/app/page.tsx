@@ -168,7 +168,7 @@ export default function KnowledgeInvestmentWebsite() {
             </div>
             <div className="space-y-4 text-white/70">
               <div className="flex items-center gap-3"><Mail className="h-5 w-5 text-amber-300" /> your@email.com</div>
-              <div className="flex items-center gap-3"><Instagram className="h-5 w-5 text-amber-300" /> Instagram / X</div>
+              <div className="flex items-center gap-3"><Send className="h-5 w-5 text-amber-300" /> Instagram / X</div>
               <div className="flex items-center gap-3"><Send className="h-5 w-5 text-amber-300" /> Telegram 社群</div>
             </div>
           </div>
