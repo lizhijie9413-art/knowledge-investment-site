@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Knowledge Capital",
-  description: "知识投资博主网站",
+  description: Knowledge Investment Blogger Website,
 };
 
 export default function RootLayout({
@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="zh-CN">
+   <html lang="en">
       <body>{children}</body>
     </html>
   );
