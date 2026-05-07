@@ -36,12 +36,6 @@ const articles = [
   "What Is the Real Value of Bitcoin?",
 ];
 
-  const articles = [
-    "为什么长期投资比短线交易更稳定？",
-    "普通人如何开始配置基金资产？",
-    "比特币的真正价值到底是什么？",
-  ];
-
   return (
     <div className="min-h-screen bg-[#070707] text-white">
       <header className="sticky top-0 z-50 border-b border-white/10 bg-black/70 backdrop-blur-xl">
