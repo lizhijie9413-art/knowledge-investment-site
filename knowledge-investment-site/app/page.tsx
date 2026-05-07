@@ -42,11 +42,11 @@ const articles = [
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
           <div className="text-xl font-bold tracking-wide text-amber-400">Knowledge Capital</div>
           <nav className="hidden gap-8 text-sm text-white/70 md:flex">
-            <a href="#home" className="hover:text-amber-400">首页</a>
-            <a href="#about" className="hover:text-amber-400">关于我</a>
-            <a href="#knowledge" className="hover:text-amber-400">投资知识</a>
-            <a href="#articles" className="hover:text-amber-400">文章</a>
-            <a href="#contact" className="hover:text-amber-400">联系</a>
+            <a href="#home" className="hover:text-amber-400">Home</a>
+            <a href="#about" className="hover:text-amber-400">About</a>
+            <a href="#knowledge" className="hover:text-amber-400">Investing</a>
+            <a href="#articles" className="hover:text-amber-400">Articles</a>
+            <a href="#contact" className="hover:text-amber-400">Contact</a>
           </nav>
         </div>
       </header>
@@ -59,17 +59,17 @@ const articles = [
               Knowledge • Investment • Growth
             </p>
             <h1 className="text-5xl font-bold leading-tight md:text-7xl">
-              用知识提升认知，<br />用投资管理未来
+              用知识提升认知，<br />Build Knowledge, Build Wealth
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-white/70">
-              分享股票、基金、比特币、财富思维与长期主义投资理念。让复杂的金融知识变得简单、清晰、可执行。
+              Learn about stocks, funds, Bitcoin, and long-term investing strategies. Making financial knowledge simple, clear, and actionable.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button className="rounded-full bg-amber-400 px-7 py-6 text-black hover:bg-amber-300">
-                开始阅读 <ArrowRight className="ml-2 h-4 w-4" />
+                Start Reading <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               <Button variant="outline" className="rounded-full border-white/20 px-7 py-6 text-white hover:bg-white/10">
-                了解博主
+                About Me
               </Button>
             </div>
           </motion.div>
@@ -99,7 +99,7 @@ const articles = [
                   ))}
                 </div>
                 <p className="mt-8 border-t border-white/10 pt-6 text-sm leading-7 text-white/60">
-                  投资不是一夜暴富，而是认知、纪律和时间的复利。
+                  Investing is not about getting rich overnight, but about the compounding effect of knowledge, discipline, and time.
                 </p>
               </CardContent>
             </Card>
@@ -110,9 +110,9 @@ const articles = [
       <section id="about" className="px-6 py-20">
         <div className="mx-auto max-w-5xl text-center">
           <p className="text-sm uppercase tracking-[0.3em] text-amber-400">About Me</p>
-          <h2 className="mt-4 text-4xl font-bold">一个专注长期投资的知识分享者</h2>
+          <h2 className="mt-4 text-4xl font-bold">A knowledge sharer focused on long-term investing</h2>
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/65">
-            我热爱金融、阅读、运动和长期投资。这里会分享股票、基金、比特币、资产配置和财富认知，希望帮助更多人建立清晰、理性、稳健的投资思维。
+            I am passionate about finance, reading, sports, and long-term investing. Here, I will share insights on stocks, funds, Bitcoin, asset allocation, and wealth management, hoping to help more people develop a clear, rational, and sound investment mindset.
           </p>
         </div>
       </section>
@@ -122,9 +122,9 @@ const articles = [
           <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <div>
               <p className="text-sm uppercase tracking-[0.3em] text-amber-400">Knowledge</p>
-              <h2 className="mt-4 text-4xl font-bold">投资知识板块</h2>
+              <h2 className="mt-4 text-4xl font-bold">Investment Knowledge Section</h2>
             </div>
-            <p className="max-w-xl text-white/60">从基础认知到资产配置，用简单语言讲清楚投资逻辑。</p>
+            <p className="max-w-xl text-white/60">From basic knowledge to asset allocation, we explain the investment logic in simple language.</p>
           </div>
           <div className="grid gap-6 md:grid-cols-4">
             {categories.map((item) => (
@@ -143,16 +143,16 @@ const articles = [
       <section id="articles" className="px-6 py-20">
         <div className="mx-auto max-w-7xl">
           <p className="text-sm uppercase tracking-[0.3em] text-amber-400">Latest Articles</p>
-          <h2 className="mt-4 text-4xl font-bold">最新文章</h2>
+          <h2 className="mt-4 text-4xl font-bold">Latest articles</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {articles.map((title, index) => (
               <Card key={title} className="rounded-3xl border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.03]">
                 <CardContent className="p-7">
-                  <span className="text-sm text-amber-300">文章 0{index + 1}</span>
+                  <span className="text-sm text-amber-300">article 0{index + 1}</span>
                   <h3 className="mt-4 text-2xl font-semibold leading-snug text-white">{title}</h3>
-                  <p className="mt-5 text-sm text-white/50">2026 · 投资认知 · 5分钟阅读</p>
+                  <p className="mt-5 text-sm text-white/50">2026 · Investment Insights · 5-Minute Read</p>
                   <button className="mt-7 flex items-center text-sm text-amber-300 hover:text-amber-200">
-                    阅读全文 <ArrowRight className="ml-2 h-4 w-4" />
+                    Read the full article <ArrowRight className="ml-2 h-4 w-4" />
                   </button>
                 </CardContent>
               </Card>
@@ -163,13 +163,13 @@ const articles = [
 
       <section className="px-6 py-24">
         <div className="mx-auto max-w-5xl rounded-[2rem] border border-amber-400/20 bg-amber-400/10 p-10 text-center md:p-16">
-          <h2 className="text-4xl font-bold">我的投资理念</h2>
-          <p className="mx-auto mt-6 max-w-3xl text-2xl leading-10 text-white/80">“投资不是赌博，而是认知、纪律和时间的复利。”</p>
+          <h2 className="text-4xl font-bold">My investment philosophy</h2>
+          <p className="mx-auto mt-6 max-w-3xl text-2xl leading-10 text-white/80">“Investing is not gambling, but the compounding effect of knowledge, discipline, and time.。”</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm text-amber-200">
-            <span className="rounded-full bg-black/30 px-4 py-2">不追热点</span>
-            <span className="rounded-full bg-black/30 px-4 py-2">控制风险</span>
-            <span className="rounded-full bg-black/30 px-4 py-2">长期主义</span>
-            <span className="rounded-full bg-black/30 px-4 py-2">保持学习</span>
+            <span className="rounded-full bg-black/30 px-4 py-2">Don't chase trends</span>
+            <span className="rounded-full bg-black/30 px-4 py-2">Controlling risks</span>
+            <span className="rounded-full bg-black/30 px-4 py-2">Long-termism</span>
+            <span className="rounded-full bg-black/30 px-4 py-2">Keep learning</span>
           </div>
         </div>
       </section>
@@ -179,20 +179,20 @@ const articles = [
           <div className="grid gap-10 md:grid-cols-2 md:items-center">
             <div>
               <p className="text-sm uppercase tracking-[0.3em] text-amber-400">Contact</p>
-              <h2 className="mt-4 text-4xl font-bold">联系与合作</h2>
-              <p className="mt-5 max-w-xl leading-8 text-white/60">欢迎交流投资知识、内容合作、社群建设或品牌合作。</p>
+              <h2 className="mt-4 text-4xl font-bold">Contact and Cooperation</h2>
+              <p className="mt-5 max-w-xl leading-8 text-white/60">We welcome exchanges on investment knowledge, content collaboration, community building, or brand cooperation.。</p>
             </div>
             <div className="space-y-4 text-white/70">
               <div className="flex items-center gap-3"><Mail className="h-5 w-5 text-amber-300" /> your@email.com</div>
               <div className="flex items-center gap-3"><Send className="h-5 w-5 text-amber-300" /> Instagram / X</div>
-              <div className="flex items-center gap-3"><Send className="h-5 w-5 text-amber-300" /> Telegram 社群</div>
+              <div className="flex items-center gap-3"><Send className="h-5 w-5 text-amber-300" /> Telegram community</div>
             </div>
           </div>
         </div>
       </section>
 
       <footer className="border-t border-white/10 px-6 py-8 text-center text-sm text-white/40">
-        © 2026 Knowledge Capital. 本网站内容仅用于知识分享，不构成任何投资建议。
+        © 2026 Knowledge Capital. The content on this website is for knowledge sharing purposes only and does not constitute any investment advice.
       </footer>
     </div>
   );
