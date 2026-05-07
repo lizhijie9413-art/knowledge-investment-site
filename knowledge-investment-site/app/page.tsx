@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, BookOpen, Bitcoin, LineChart, ShieldCheck, Mail, Instagram, Send } from "lucide-react";
+import { ArrowRight, BookOpen, Bitcoin, LineChart, ShieldCheck, Mail, Send } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
