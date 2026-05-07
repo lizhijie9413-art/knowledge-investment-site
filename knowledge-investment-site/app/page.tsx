@@ -8,11 +8,33 @@ import { Button } from "@/components/ui/button";
 
 export default function KnowledgeInvestmentWebsite() {
   const categories = [
-    { icon: <LineChart className="h-7 w-7" />, title: "股票投资", desc: "学习长期主义、价值投资与风险控制。" },
-    { icon: <ShieldCheck className="h-7 w-7" />, title: "基金理财", desc: "适合普通人的资产配置与稳健增长。" },
-    { icon: <Bitcoin className="h-7 w-7" />, title: "比特币认知", desc: "理解数字资产、周期波动与未来趋势。" },
-    { icon: <BookOpen className="h-7 w-7" />, title: "财富思维", desc: "复利、纪律、认知升级与长期规划。" },
-  ];
+  {
+    icon: <LineChart className="h-7 w-7" />,
+    title: "Stock Investing",
+    desc: "Learn long-term investing, value investing, and risk management."
+  },
+  {
+    icon: <ShieldCheck className="h-7 w-7" />,
+    title: "Fund Investing",
+    desc: "Simple portfolio strategies for stable long-term growth."
+  },
+  {
+    icon: <Bitcoin className="h-7 w-7" />,
+    title: "Bitcoin Insights",
+    desc: "Understand digital assets, market cycles, and future trends."
+  },
+  {
+    icon: <BookOpen className="h-7 w-7" />,
+    title: "Wealth Mindset",
+    desc: "Build discipline, compound growth thinking, and financial awareness."
+  },
+];
+
+const articles = [
+  "Why Long-Term Investing Beats Short-Term Trading",
+  "How Beginners Can Build a Simple Fund Portfolio",
+  "What Is the Real Value of Bitcoin?",
+];
 
   const articles = [
     "为什么长期投资比短线交易更稳定？",
