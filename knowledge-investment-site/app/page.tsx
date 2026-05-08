@@ -65,12 +65,16 @@ const articles = [
               Learn about stocks, funds, Bitcoin, and long-term investing strategies. Making financial knowledge simple, clear, and actionable.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Button className="rounded-full bg-amber-400 px-7 py-6 text-black hover:bg-amber-300">
-                Start Reading <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button variant="outline" className="rounded-full border-white/20 px-7 py-6 text-white hover:bg-white/10">
-                About Me
-              </Button>
+              <a href="#articles">
+               <Button className="rounded-full bg-amber-400 px-7 py-6 text-black hover:bg-amber-300">
+               Start Reading <ArrowRight className="ml-2 h-4 w-4" />
+               </Button>
+                </a>
+              <a href="#about">
+               <Button variant="outline" className="rounded-full border-white/20 px-7 py-6 text-white hover:bg-white/10">
+               About Me
+                 </Button>
+                </a>
             </div>
           </motion.div>
 
@@ -83,10 +87,10 @@ const articles = [
                 </div>
                 <div className="space-y-5">
                   {[
-                    ["风险管理", "92%"],
-                    ["长期配置", "86%"],
-                    ["市场认知", "78%"],
-                    ["财富纪律", "95%"],
+                    ["Risk Management", "92%"],
+                    ["Long-Term Allocation", "86%"],
+                    ["Market Awareness", "78%"],
+                    ["Wealth Discipline", "95%"],
                   ].map(([label, value]) => (
                     <div key={label}>
                       <div className="mb-2 flex justify-between text-sm text-white/70">
