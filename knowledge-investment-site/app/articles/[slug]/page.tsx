@@ -19,8 +19,8 @@
     },
   };
 
-  const article = articles[String(params.slug)];
-
+  const slug = params?.slug || "";
+  const article = articles[slug];
   if (!article) {
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center">
