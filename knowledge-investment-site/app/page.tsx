@@ -59,13 +59,13 @@ const articles = [
               Knowledge • Investment • Growth
             </p>
             <h1 className="text-5xl font-bold leading-tight md:text-7xl">
-              用知识提升认知，<br />Build Knowledge, Build Wealth
+              Enhance cognition with knowledge，<br />Build Knowledge, Build Wealth
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-white/70">
               Learn about stocks, funds, Bitcoin, and long-term investing strategies. Making financial knowledge simple, clear, and actionable.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a href="#articles">
+              <a href="/articles">
                <Button className="rounded-full bg-amber-400 px-7 py-6 text-black hover:bg-amber-300">
                Start Reading <ArrowRight className="ml-2 h-4 w-4" />
                </Button>
