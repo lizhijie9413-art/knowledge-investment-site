@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Knowledge Capital",
-  description: Knowledge Investment Blogger Website,
+ description: "Knowledge Investment Blogger Website",
 };
 
 export default function RootLayout({
