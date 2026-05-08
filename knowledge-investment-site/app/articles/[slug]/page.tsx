@@ -1,8 +1,4 @@
-export default function ArticlePage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+ export default function ArticlePage({ params }: any) {
   const articles: Record<string, any> = {
     bitcoin: {
       title: "Bitcoin and Financial Freedom",
@@ -23,7 +19,7 @@ export default function ArticlePage({
     },
   };
 
-  const article = articles[params.slug];
+  const article = articles[String(params.slug)];
 
   if (!article) {
     return (
