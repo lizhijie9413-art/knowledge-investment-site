@@ -1,4 +1,4 @@
- export default function ArticlePage({ params }: any) {
+  export default async function ArticlePage({ params }: any) {
   const articles: Record<string, any> = {
     bitcoin: {
       title: "Bitcoin and Financial Freedom",
@@ -19,7 +19,7 @@
     },
   };
 
-  const slug = params?.slug || "";
+  const { slug } = await params;
   const article = articles[slug];
   if (!article) {
     return (
