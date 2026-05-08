@@ -1,18 +1,23 @@
 export default function ArticlesPage() {
-  const articles = [
-    {
-      title: "Why Long-Term Investing Wins",
-      desc: "Learn why patience and compound growth outperform short-term trading.",
-    },
-    {
-      title: "Bitcoin and Financial Freedom",
-      desc: "Understanding Bitcoin as a long-term digital asset.",
-    },
-    {
-      title: "Simple Fund Portfolio Guide",
-      desc: "A beginner-friendly strategy for building wealth steadily.",
-    },
-  ];
+ const articles = [
+  {
+    slug: "investing",
+    title: "Why Long-Term Investing Wins",
+    desc: "Learn why patience and compound growth outperform short-term trading.",
+  },
+
+  {
+    slug: "bitcoin",
+    title: "Bitcoin and Financial Freedom",
+    desc: "Understanding Bitcoin as a long-term digital asset.",
+  },
+
+  {
+    slug: "funds",
+    title: "Simple Fund Portfolio Guide",
+    desc: "A beginner-friendly strategy for building wealth steadily.",
+  },
+];
 
   return (
     <div className="min-h-screen bg-[#070707] text-white px-6 py-20">
@@ -40,9 +45,12 @@ export default function ArticlesPage() {
                 {article.desc}
               </p>
 
+             <a href={`/articles/${article.slug}`}>
               <button className="mt-8 rounded-full bg-amber-400 px-6 py-3 text-black font-medium hover:bg-amber-300">
-                Read Article
-              </button>
+               Read Article
+               </button>
+                 </a>
+              
             </div>
           ))}
         </div>
