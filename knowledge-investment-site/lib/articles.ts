@@ -12,7 +12,7 @@ export const articles = [
     slug: "bitcoin",
     title: "Bitcoin and Financial Freedom",
     desc: "Understanding Bitcoin as a long-term digital asset.",
-    image: "/photo_2026-05-10_22-16-09.jpg",
+    image: "/photo_2026-05-10_22-49-18.jpg",
     content:
       "Bitcoin is changing the way people think about money, inflation, and long-term wealth preservation. Many investors see Bitcoin as digital gold.",
   },
@@ -21,7 +21,7 @@ export const articles = [
     slug: "funds",
     title: "Simple Fund Portfolio Guide",
     desc: "A beginner-friendly strategy for building wealth steadily.",
-    image: "/photo_2026-05-10_22-36-23.jpg",
+    image: "/photo_2026-05-10_22-49-05.jpg",
     content:
       "A diversified index fund portfolio is one of the safest long-term investment strategies. Diversification helps reduce risk while compounding wealth.",
   },
