@@ -1,6 +1,24 @@
-import { articles } from "@/lib/articles";
-
+"use client";
+import { supabase } from "@/lib/supabase";
+import { useEffect, useState } from "react";
 export default function ArticlesPage() {
+
+  const [articles, setArticles] = useState<any[]>([]);
+
+  useEffect(() => {
+    fetchArticles();
+  }, []);
+
+  async function fetchArticles() {
+    const { data } = await supabase
+      .from("articles")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (data) {
+      setArticles(data);
+    }
+  }
   return (
     <div className="min-h-screen bg-[#070707] text-white px-6 py-20">
       <div className="mx-auto max-w-6xl">
