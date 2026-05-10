@@ -1,24 +1,6 @@
+import { articles } from "@/lib/articles";
+
 export default function ArticlesPage() {
- const articles = [
-  {
-    slug: "investing",
-    title: "Why Long-Term Investing Wins",
-    desc: "Learn why patience and compound growth outperform short-term trading.",
-  },
-
-  {
-    slug: "bitcoin",
-    title: "Bitcoin and Financial Freedom",
-    desc: "Understanding Bitcoin as a long-term digital asset.",
-  },
-
-  {
-    slug: "funds",
-    title: "Simple Fund Portfolio Guide",
-    desc: "A beginner-friendly strategy for building wealth steadily.",
-  },
-];
-
   return (
     <div className="min-h-screen bg-[#070707] text-white px-6 py-20">
       <div className="mx-auto max-w-6xl">
