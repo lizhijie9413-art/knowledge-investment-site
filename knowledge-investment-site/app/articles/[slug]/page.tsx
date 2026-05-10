@@ -1,26 +1,12 @@
-  export default async function ArticlePage({ params }: any) {
-  const articles: Record<string, any> = {
-    bitcoin: {
-      title: "Bitcoin and Financial Freedom",
-      content:
-        "Bitcoin is changing the way people think about money, inflation, and long-term wealth preservation.",
-    },
+import { articles } from "@/lib/articles";
 
-    investing: {
-      title: "Why Long-Term Investing Wins",
-      content:
-        "Long-term investing focuses on patience, discipline, and compound growth over time.",
-    },
-
-    funds: {
-      title: "Simple Fund Portfolio Guide",
-      content:
-        "A diversified index fund portfolio is one of the safest long-term investment strategies.",
-    },
-  };
+export default async function ArticlePage({ params }: any) {
 
   const { slug } = await params;
-  const article = articles[slug];
+
+  const article = articles.find(
+    (item) => item.slug === slug
+  );
   if (!article) {
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center">
