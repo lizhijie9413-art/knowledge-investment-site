@@ -29,4 +29,10 @@ export const articles = [
   content:
     "Ethereum powers smart contracts and decentralized finance.",
 },
+ {
+  slug: "solana",
+  title: "Solana Growth",
+  desc: "Why Solana is growing fast.",
+  content: "Solana offers fast and low-cost blockchain transactions.",
+}, 
 ];
