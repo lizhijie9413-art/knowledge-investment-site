@@ -11,6 +11,7 @@ export const articles = [
     slug: "bitcoin",
     title: "Bitcoin and Financial Freedom",
     desc: "Understanding Bitcoin as a long-term digital asset.",
+    image: "/photo_2026-05-10_22-16-09.jpg",
     content:
       "Bitcoin is changing the way people think about money, inflation, and long-term wealth preservation. Many investors see Bitcoin as digital gold.",
   },
@@ -26,6 +27,7 @@ export const articles = [
   slug: "ethereum",
   title: "Ethereum Future",
   desc: "Why Ethereum matters.",
+  image: "/photo_2026-05-10_22-16-16.jpg",
   content:
     "Ethereum powers smart contracts and decentralized finance.",
 },
@@ -33,6 +35,7 @@ export const articles = [
   slug: "solana",
   title: "Solana Growth",
   desc: "Why Solana is growing fast.",
+  image: "/photo_2026-05-10_22-16-24.jpg",
   content: "Solana offers fast and low-cost blockchain transactions.",
 }, 
 ];
