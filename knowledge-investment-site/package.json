@@ -11,11 +11,13 @@
     "clsx": "latest",
     "framer-motion": "latest",
     "lucide-react": "latest",
+    "openai": "^4.0.0",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
     "tailwind-merge": "latest",
     "tailwindcss-animate": "latest"
+    
   },
   "devDependencies": {
     "@types/node": "latest",
