@@ -21,7 +21,7 @@ export const articles = [
     slug: "funds",
     title: "Simple Fund Portfolio Guide",
     desc: "A beginner-friendly strategy for building wealth steadily.",
-    image: "/photo_2026-05-10_22-49-05.jpg",
+    image: "/photo_2026-05-10_22-36-23.jpg",
     content:
       "A diversified index fund portfolio is one of the safest long-term investment strategies. Diversification helps reduce risk while compounding wealth.",
   },
@@ -37,7 +37,7 @@ export const articles = [
   slug: "solana",
   title: "Solana Growth",
   desc: "Why Solana is growing fast.",
-  image: "/photo_2026-05-10_22-16-24.jpg",
+  image: "/photo_2026-05-10_22-49-05.jpg",
   content: "Solana offers fast and low-cost blockchain transactions.",
 }, 
 ];
