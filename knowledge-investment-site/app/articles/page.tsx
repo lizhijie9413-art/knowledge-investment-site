@@ -12,8 +12,8 @@ export default function ArticlesPage() {
   async function fetchArticles() {
     const { data } = await supabase
       .from("articles")
-      .select("*")
-      .order("created_at", { ascending: false });
+      .select("*");
+     
 
     if (data) {
       setArticles(data);
