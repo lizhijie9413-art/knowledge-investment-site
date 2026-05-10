@@ -19,6 +19,12 @@ export default function ArticlesPage() {
               key={index}
               className="rounded-3xl border border-white/10 bg-white/5 p-8 hover:bg-white/10 transition"
             >
+
+              <img
+               src={article.image}
+               alt={article.title}
+               className="w-full h-48 object-cover rounded-2xl mb-6"
+            />
               <h2 className="text-2xl font-semibold text-white">
                 {article.title}
               </h2>
