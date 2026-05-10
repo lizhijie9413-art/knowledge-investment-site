@@ -3,7 +3,7 @@ export const articles = [
     slug: "investing",
     title: "Why Long-Term Investing Wins",
     desc: "Learn why patience and compound growth outperform short-term trading.",
-    image: "/photo_2026-05-10_22-16-15.jpg",
+    image: "/photo_2026-05-10_22-36-15.jpg",
     content:
       "Long-term investing focuses on patience, discipline, and compound growth over time. Investors who avoid emotional trading often outperform short-term speculators.",
   },
@@ -21,7 +21,7 @@ export const articles = [
     slug: "funds",
     title: "Simple Fund Portfolio Guide",
     desc: "A beginner-friendly strategy for building wealth steadily.",
-    image: "/photo_2026-05-10_22-16-23.jpg",
+    image: "/photo_2026-05-10_22-36-23.jpg",
     content:
       "A diversified index fund portfolio is one of the safest long-term investment strategies. Diversification helps reduce risk while compounding wealth.",
   },
