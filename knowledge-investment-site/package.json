@@ -5,6 +5,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.49.8",
     "@radix-ui/react-slot": "latest",
     "class-variance-authority": "latest",
     "clsx": "latest",
