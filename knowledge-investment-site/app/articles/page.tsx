@@ -32,34 +32,34 @@ export default function ArticlesPage() {
         </p>
 
         <div className="mt-14 grid gap-8 md:grid-cols-3">
-          {articles.map((article, index) => (
-            <div
-              key={index}
-              className="rounded-3xl border border-white/10 bg-white/5 p-8 hover:bg-white/10 transition"
-            >
+  {articles.map((article, index) => (
+    <div
+      key={index}
+      className="rounded-3xl border border-white/10 bg-white/5 p-8"
+    >
+      <img
+        src={article.image}
+        alt={article.title}
+        className="h-48 w-full object-cover rounded-2xl"
+      />
 
-              <img
-               src={article.image}
-               alt={article.title}
-               className="w-full h-48 object-cover rounded-2xl mb-6"
-            />
-              <h2 className="text-2xl font-semibold text-white">
-                {article.title}
-              </h2>
+      <h2 className="mt-6 text-3xl font-bold">
+        {article.title}
+      </h2>
 
-              <p className="mt-4 text-white/70 leading-7">
-                {article.desc}
-              </p>
+      <p className="mt-4 text-white/70">
+        {article.desc}
+      </p>
 
-             <a href={`/articles/${article.slug}`}>
-              <button className="mt-8 rounded-full bg-amber-400 px-6 py-3 text-black font-medium hover:bg-amber-300">
-               Read Article
-               </button>
-                 </a>
-              
-            </div>
-          ))}
-        </div>
+      <a
+        href={`/articles/${article.slug}`}
+        className="mt-6 inline-block text-amber-400"
+      >
+        Read article →
+      </a>
+    </div>
+  ))}
+</div>
 
       </div>
     </div>
