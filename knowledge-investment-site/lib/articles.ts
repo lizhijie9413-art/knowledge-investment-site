@@ -22,4 +22,11 @@ export const articles = [
     content:
       "A diversified index fund portfolio is one of the safest long-term investment strategies. Diversification helps reduce risk while compounding wealth.",
   },
+  {
+  slug: "ethereum",
+  title: "Ethereum Future",
+  desc: "Why Ethereum matters.",
+  content:
+    "Ethereum powers smart contracts and decentralized finance.",
+},
 ];
