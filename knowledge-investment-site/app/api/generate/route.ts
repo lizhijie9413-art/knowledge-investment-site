@@ -6,10 +6,9 @@ const openai = new OpenAI({
 });
 
 const supabase = createClient(
-  "https://fqfhfyjdfgqfwtufuuxm.supabase.co",
-  "sb_secret_YeeeDHcMAwr9XnCVtMuxEA_v8Nw8yzq"
+  process.env.VITE_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
-
 export async function POST(req: Request) {
   const body = await req.json();
 
