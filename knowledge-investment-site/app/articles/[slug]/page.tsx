@@ -1,7 +1,7 @@
 import { supabase } from "@/lib/supabase";
 
 export default async function ArticlePage({ params }: any) {
-  const { slug } = await params;
+  const slug = params.slug;
 
   const { data: article } = await supabase
     .from("articles")
@@ -12,7 +12,9 @@ export default async function ArticlePage({ params }: any) {
   if (!article) {
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center">
-        Article Not Found
+        <h1 className="text-5xl font-bold">
+          Article Not Found
+        </h1>
       </div>
     );
   }
@@ -20,7 +22,10 @@ export default async function ArticlePage({ params }: any) {
   return (
     <div className="min-h-screen bg-[#070707] text-white px-6 py-20">
       <div className="mx-auto max-w-4xl">
-        <a href="/articles" className="text-amber-400">
+        <a
+          href="/articles"
+          className="text-amber-400"
+        >
           ← Back to Articles
         </a>
 
@@ -41,3 +46,4 @@ export default async function ArticlePage({ params }: any) {
     </div>
   );
 }
+
