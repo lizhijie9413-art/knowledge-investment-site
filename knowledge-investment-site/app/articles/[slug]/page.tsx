@@ -1,16 +1,18 @@
-import { articles } from "@/lib/articles";
+import { supabase } from "@/lib/supabase";
 
 export default async function ArticlePage({ params }: any) {
-
   const { slug } = await params;
 
-  const article = articles.find(
-    (item) => item.slug === slug
-  );
+  const { data: article } = await supabase
+    .from("articles")
+    .select("*")
+    .eq("slug", slug)
+    .single();
+
   if (!article) {
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center">
-        <h1 className="text-4xl font-bold">Article Not Found</h1>
+        Article Not Found
       </div>
     );
   }
@@ -18,11 +20,7 @@ export default async function ArticlePage({ params }: any) {
   return (
     <div className="min-h-screen bg-[#070707] text-white px-6 py-20">
       <div className="mx-auto max-w-4xl">
-
-        <a
-          href="/articles"
-          className="text-amber-400 hover:text-amber-300"
-        >
+        <a href="/articles" className="text-amber-400">
           ← Back to Articles
         </a>
 
@@ -30,10 +28,15 @@ export default async function ArticlePage({ params }: any) {
           {article.title}
         </h1>
 
-        <p className="mt-10 text-xl leading-9 text-white/80">
-          {article.content}
-        </p>
+        <img
+          src={article.image}
+          alt={article.title}
+          className="mt-10 w-full rounded-3xl"
+        />
 
+        <div className="mt-10 whitespace-pre-wrap text-xl leading-9 text-white/80">
+          {article.content}
+        </div>
       </div>
     </div>
   );
