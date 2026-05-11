@@ -45,18 +45,17 @@ Requirements:
   const image =
     "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3";
 
-  const { data, error } = await supabase
-    .from("articles")
-    .insert([
-      {
-        title,
-        slug,
-        desc: title,
-        image,
-        content,
-      },
-    ]);
-
+ const { data, error } = await supabase
+  .from("articles")
+  .insert([
+    {
+      title,
+      slug,
+      desc: `AI generated investment article about ${title}`,
+      image,
+      content: completion.choices[0].message.content || "",
+    },
+  ]);
   return Response.json({
     success: true,
     data,
