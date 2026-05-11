@@ -15,15 +15,26 @@ export async function POST(req: Request) {
 
   const title = body.title;
 
-  const completion = await openai.chat.completions.create({
-    model: "gpt-4.1-mini",
-    messages: [
-      {
-        role: "user",
-        content: `Write a professional investment article about: ${title}`,
-      },
-    ],
-  });
+const completion = await openai.chat.completions.create({
+  model: "gpt-4.1-mini",
+  messages: [
+    {
+      role: "user",
+      content: `
+Write a detailed professional investment article about: ${title}
+
+Requirements:
+- 1200 to 1800 words
+- Clear introduction
+- Use subheadings
+- Explain risks and opportunities
+- Write for beginner investors
+- Avoid financial advice language
+- End with a balanced conclusion
+`,
+    },
+  ],
+});
 
   const content =
     completion.choices[0].message.content || "";
