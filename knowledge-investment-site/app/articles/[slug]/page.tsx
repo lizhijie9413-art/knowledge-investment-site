@@ -7,7 +7,7 @@ export default async function ArticlePage({ params }: any) {
     .from("articles")
     .select("*")
     .eq("slug", slug)
-    .single();
+    .maybeSingle();
 
   if (!article) {
     return (
