@@ -23,7 +23,7 @@ const completion = await openai.chat.completions.create({
 Write a detailed professional investment article about: ${title}
 
 Requirements:
-- 1200 to 1800 words
+- 300 to 500 words
 - Clear introduction
 - Use subheadings
 - Explain risks and opportunities
