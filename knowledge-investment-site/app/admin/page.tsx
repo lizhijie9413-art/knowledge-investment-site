@@ -23,13 +23,14 @@ async function generateArticle() {
   });
 
   const data = await res.json();
+console.log(data);
 
-  if (data.success) {
-    alert("AI article created!");
-    setTopic("");
-  } else {
-    alert("Failed to generate article");
-  }
+if (data.success) {
+  alert("AI article created!");
+  setTopic("");
+} else {
+  alert(data.error || "Failed to generate article");
+}
 
   setLoading(false);
 }
