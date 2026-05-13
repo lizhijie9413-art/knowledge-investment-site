@@ -13,67 +13,54 @@ const supabase = createClient(
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-
     const title = body.title;
 
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",
-  messages: [
-    {
-      role: "user",
-      content: `
-Write a detailed professional investment article about: ${title}
+      max_tokens: 800,
+      messages: [
+        {
+          role: "user",
+          content: `Write a 300 to 500 word beginner-friendly investment article about: ${title}`,
+        },
+      ],
+    });
 
-Requirements:
-- 300 to 500 words
-- Clear introduction
-- Use subheadings
-- Explain risks and opportunities
-- Write for beginner investors
-- Avoid financial advice language
-- End with a balanced conclusion
-`,
-    },
-  ],
-});
+    const content = completion.choices[0].message.content || "";
 
-  const content =
-    completion.choices[0].message.content || "";
+    const slug =
+      title
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)/g, "") +
+      "-" +
+      Date.now();
 
-  const slug =
-  title
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "") +
-  "-" +
-  Date.now();
+    const image =
+      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3";
 
-  const image =
-    "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3";
+    const { data, error } = await supabase
+      .from("articles")
+      .insert([
+        {
+          title,
+          slug,
+          desc: `AI generated investment article about ${title}`,
+          image,
+          content,
+        },
+      ])
+      .select();
 
- const { data, error } = await supabase
-  .from("articles")
-  .insert([
-    {
-      title,
-      slug,
-      desc: `AI generated investment article about ${title}`,
-      image,
-      content: completion.choices[0].message.content || "",
-    },
-  ]);
-  rreturn Response.json({
-  success: true,
-  data,
-  error,
-});
+    if (error) {
+      return Response.json({ success: false, error: error.message }, { status: 500 });
+    }
 
+    return Response.json({ success: true, data });
   } catch (error: any) {
-    console.log(error);
-
     return Response.json(
-      { error: error.message },
+      { success: false, error: error.message },
       { status: 500 }
     );
   }
