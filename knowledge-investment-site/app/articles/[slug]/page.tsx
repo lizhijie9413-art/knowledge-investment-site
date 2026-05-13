@@ -29,19 +29,20 @@ export default async function ArticlePage({ params }: any) {
           ← Back to Articles
         </a>
 
+    
         <h1 className="mt-8 text-5xl font-bold text-amber-400">
-          {article.title}
-        </h1>
+  {article.title}
+</h1>
 
+<div className="mt-10 text-lg leading-9 text-white/80 whitespace-pre-wrap">
+  {article.content}
+</div>
         <img
           src={article.image}
           alt={article.title}
           className="mt-10 w-full rounded-3xl"
         />
 
-        <div className="mt-10 whitespace-pre-wrap text-xl leading-9 text-white/80">
-          {article.content}
-        </div>
       </div>
     </div>
   );
