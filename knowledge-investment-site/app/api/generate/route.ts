@@ -9,13 +9,15 @@ const supabase = createClient(
   process.env.VITE_SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
+
 export async function POST(req: Request) {
-  const body = await req.json();
+  try {
+    const body = await req.json();
 
-  const title = body.title;
+    const title = body.title;
 
-const completion = await openai.chat.completions.create({
-  model: "gpt-4.1-mini",
+    const completion = await openai.chat.completions.create({
+      model: "gpt-4o-mini",
   messages: [
     {
       role: "user",
@@ -61,9 +63,18 @@ Requirements:
       content: completion.choices[0].message.content || "",
     },
   ]);
-  return Response.json({
-    success: true,
-    data,
-    error,
-  });
+  rreturn Response.json({
+  success: true,
+  data,
+  error,
+});
+
+  } catch (error: any) {
+    console.log(error);
+
+    return Response.json(
+      { error: error.message },
+      { status: 500 }
+    );
+  }
 }
