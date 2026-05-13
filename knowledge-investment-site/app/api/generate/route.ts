@@ -28,14 +28,11 @@ export async function POST(req: Request) {
 
     const content = completion.choices[0].message.content || "";
 
-    const slug =
-      title
-        .toLowerCase()
-        .trim()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/(^-|-$)/g, "") +
-      "-" +
-      Date.now();
+   const slug = title
+  .toLowerCase()
+  .trim()
+  .replace(/[^a-z0-9]+/g, "-")
+  .replace(/(^-|-$)/g, "");
 
     const image =
       "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3";
