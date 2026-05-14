@@ -46,3 +46,28 @@ const image =
     : lowerTitle.includes("risk")
     ? "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a"
     : "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3";
+ const { data, error } = await supabase
+  .from("articles")
+  .insert([
+    {
+      title,
+      slug,
+      desc: `AI generated investment article about ${title}`,
+      image,
+      content,
+    },
+  ])
+  .select();
+
+if (error) {
+  return Response.json({ success: false, error: error.message }, { status: 500 });
+}
+
+return Response.json({ success: true, data });
+    catch (err) {
+  return Response.json(
+    { success: false, error: "Server error" },
+    { status: 500 }
+  );
+}
+}
