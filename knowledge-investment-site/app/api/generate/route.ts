@@ -39,21 +39,24 @@ export async function POST(req: Request) {
 if (title.toLowerCase().includes("bitcoin")) {
   image =
     "https://images.unsplash.com/photo-1518546305927-5a555bb7020d";
-} else if (title.toLowerCase().includes("ethereum")) {
+}
+else if (title.toLowerCase().includes("ethereum")) {
   image =
     "https://images.unsplash.com/photo-1621761191319-c6fb62004040";
-} else if (
+}
+else if (
   title.toLowerCase().includes("etf") ||
   title.toLowerCase().includes("fund")
 ) {
   image =
     "https://images.unsplash.com/photo-1554224155-6726b3ff858f";
-} else if (
-  title.toLowerCase().includes("risk")
-) {
+}
+else if (title.toLowerCase().includes("risk")) {
   image =
     "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a";
-} else {
+}
+else {
   image =
     "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3";
 }
+};
