@@ -16,9 +16,9 @@
     "react": "latest",
     "react-dom": "latest",
     "tailwind-merge": "latest",
-    "tailwindcss-animate": "latest"
-    
-  },
+    "tailwindcss-animate": "latest",
+     "react-markdown": "^9.0.0"
+      },
   "devDependencies": {
     "@types/node": "latest",
     "@types/react": "latest",
