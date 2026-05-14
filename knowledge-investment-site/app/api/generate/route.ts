@@ -21,7 +21,20 @@ export async function POST(req: Request) {
       messages: [
         {
           role: "user",
-          content: `Write a 300 to 500 word beginner-friendly investment article about: ${title}`,
+          content: `
+Write a professional beginner-friendly investment article about: ${title}
+
+Use proper markdown formatting.
+
+Requirements:
+- Use # for main title
+- Use ## for section headings
+- Use bullet points where helpful
+- Make paragraphs clean and readable
+- Add spacing between sections
+- Make it look like a real blog article
+- 500 to 800 words
+`,
         },
       ],
     });
