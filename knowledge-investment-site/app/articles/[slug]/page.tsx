@@ -47,12 +47,30 @@ export default async function ArticlePage({
         )}
 
       <div className="mt-10 prose prose-invert max-w-none prose-headings:text-amber-400 prose-p:text-white/80">
-           <ReactMarkdown>
-            {article.content}
-         </ReactMarkdown>
-      </div>   
-      </div>
-    </main>
-  );
-}
+           <ReactMarkdown
+  components={{
+    h1: ({ children }) => (
+      <h1 className="text-5xl font-bold text-amber-400 mb-8 mt-10">
+        {children}
+      </h1>
+    ),
+    h2: ({ children }) => (
+      <h2 className="text-3xl font-bold text-amber-300 mb-6 mt-10">
+        {children}
+      </h2>
+    ),
+    p: ({ children }) => (
+      <p className="text-white/80 text-xl leading-9 mb-6">
+        {children}
+      </p>
+    ),
+    li: ({ children }) => (
+      <li className="text-white/80 text-xl mb-2">
+        {children}
+      </li>
+    ),
+  }}
+>
+  {article.content}
+</ReactMarkdown>
 
