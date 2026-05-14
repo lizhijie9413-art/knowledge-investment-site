@@ -25,12 +25,12 @@ export default async function ArticlePage({
   return (
     <main className="min-h-screen bg-black text-white px-6 py-16">
       <div className="max-w-4xl mx-auto">
-        <Link
-  href="/articles"
-  className="text-amber-400 inline-block mb-6 hover:text-yellow-300 transition"
+<a
+  href="https://knowledge-investment-site.vercel.app/articles"
+  className="text-amber-400 inline-block mb-6 hover:text-yellow-300 transition cursor-pointer relative z-50"
 >
-          ← Back to Articles
-        </Link>
+  ← Back to Articles
+</a>
 
         <h1 className="mt-8 text-5xl font-bold text-amber-400">
           {article.title}
