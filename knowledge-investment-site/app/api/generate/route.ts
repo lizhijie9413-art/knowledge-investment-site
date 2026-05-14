@@ -34,31 +34,26 @@ export async function POST(req: Request) {
   .replace(/[^a-z0-9]+/g, "-")
   .replace(/(^-|-$)/g, "");
 
-    const image =
-      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3";
+    let image = "";
 
-    const { data, error } = await supabase
-      .from("articles")
-      .insert([
-        {
-          title,
-          slug,
-          desc: `AI generated investment article about ${title}`,
-          image,
-          content,
-        },
-      ])
-      .select();
-
-    if (error) {
-      return Response.json({ success: false, error: error.message }, { status: 500 });
-    }
-
-    return Response.json({ success: true, data });
-  } catch (error: any) {
-    return Response.json(
-      { success: false, error: error.message },
-      { status: 500 }
-    );
-  }
+if (title.toLowerCase().includes("bitcoin")) {
+  image =
+    "https://images.unsplash.com/photo-1518546305927-5a555bb7020d";
+} else if (title.toLowerCase().includes("ethereum")) {
+  image =
+    "https://images.unsplash.com/photo-1621761191319-c6fb62004040";
+} else if (
+  title.toLowerCase().includes("etf") ||
+  title.toLowerCase().includes("fund")
+) {
+  image =
+    "https://images.unsplash.com/photo-1554224155-6726b3ff858f";
+} else if (
+  title.toLowerCase().includes("risk")
+) {
+  image =
+    "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a";
+} else {
+  image =
+    "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3";
 }
