@@ -22,18 +22,36 @@ export async function POST(req: Request) {
         {
           role: "user",
           content: `
+content: `
 Write a professional beginner-friendly investment article about: ${title}
 
-Use proper markdown formatting.
+Use beautiful markdown formatting.
 
 Requirements:
-- Use # for main title
+- Use # for the main title
 - Use ## for section headings
-- Use bullet points where helpful
-- Make paragraphs clean and readable
-- Add spacing between sections
-- Make it look like a real blog article
+- Add blank lines between every paragraph
+- Add blank lines between headings and text
+- Use bullet points where useful
+- Use bold text for important concepts
+- Make the article look like a modern finance blog
+- Keep paragraphs short and readable
 - 500 to 800 words
+
+Example format:
+
+# Main Title
+
+Intro paragraph here...
+
+## Section Heading
+
+Paragraph here...
+
+- Bullet point
+- Bullet point
+
+Another paragraph here...
 `,
         },
       ],
