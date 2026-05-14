@@ -1,16 +1,25 @@
-import { supabase } from "@/lib/supabase";
 import Link from "next/link";
+import { createClient } from "@supabase/supabase-js";
 
-export default async function ArticlePage({ params }: any) {
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
+
+export default async function ArticlePage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const slug = params.slug;
 
-  const { data: article, error } = await supabase
+  const { data: article } = await supabase
     .from("articles")
     .select("*")
     .eq("slug", slug)
-    .single();
+    .maybeSingle();
 
-  if (error || !article) {
+  if (!article) {
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center">
         <h1 className="text-5xl font-bold">Article Not Found</h1>
