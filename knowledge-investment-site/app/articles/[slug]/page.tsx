@@ -1,3 +1,5 @@
+import ReactMarkdown from "react-markdown";
+
 import { supabase } from "@/lib/supabase";
 import Link from "next/link";
 
@@ -44,9 +46,11 @@ export default async function ArticlePage({
           />
         )}
 
-        <div className="mt-10 whitespace-pre-wrap text-xl leading-9 text-white/80">
-          {article.content}
-        </div>
+      <div className="mt-10 prose prose-invert max-w-none prose-headings:text-amber-400 prose-p:text-white/80">
+           <ReactMarkdown>
+            {article.content}
+         </ReactMarkdown>
+      </div>   
       </div>
     </main>
   );
