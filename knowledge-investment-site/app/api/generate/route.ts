@@ -22,7 +22,7 @@ export async function POST(req: Request) {
         {
           role: "user",
           content: `
-content: `
+          
 Write a professional beginner-friendly investment article about: ${title}
 
 Use beautiful markdown formatting.
