@@ -34,29 +34,14 @@ export async function POST(req: Request) {
   .replace(/[^a-z0-9]+/g, "-")
   .replace(/(^-|-$)/g, "");
 
-    let image = "";
+const lowerTitle = title.toLowerCase();
 
-if (title.toLowerCase().includes("bitcoin")) {
-  image =
-    "https://images.unsplash.com/photo-1518546305927-5a555bb7020d";
-}
-else if (title.toLowerCase().includes("ethereum")) {
-  image =
-    "https://images.unsplash.com/photo-1621761191319-c6fb62004040";
-}
-else if (
-  title.toLowerCase().includes("etf") ||
-  title.toLowerCase().includes("fund")
-) {
-  image =
-    "https://images.unsplash.com/photo-1554224155-6726b3ff858f";
-}
-else if (title.toLowerCase().includes("risk")) {
-  image =
-    "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a";
-}
-else {
-  image =
-    "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3";
-};
-
+const image = lowerTitle.includes("bitcoin")
+  ? "https://images.unsplash.com/photo-1518546305927-5a555bb7020d"
+  : lowerTitle.includes("ethereum")
+  ? "https://images.unsplash.com/photo-1621761191319-c6fb62004040"
+  : lowerTitle.includes("etf") || lowerTitle.includes("fund")
+  ? "https://images.unsplash.com/photo-1554224155-6726b3ff858f"
+  : lowerTitle.includes("risk")
+  ? "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a"
+  : "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3";
