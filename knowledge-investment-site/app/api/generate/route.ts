@@ -64,7 +64,8 @@ if (error) {
 }
 
 return Response.json({ success: true, data });
-    catch (err) {
+  
+  }  catch (err) {
   return Response.json(
     { success: false, error: "Server error" },
     { status: 500 }
