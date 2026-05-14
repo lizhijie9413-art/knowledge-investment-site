@@ -25,7 +25,10 @@ export default async function ArticlePage({
   return (
     <main className="min-h-screen bg-black text-white px-6 py-16">
       <div className="max-w-4xl mx-auto">
-        <Link href="/articles" className="text-amber-400">
+        <Link
+  href="/articles"
+  className="text-amber-400 inline-block mb-6 hover:text-yellow-300 transition"
+>
           ← Back to Articles
         </Link>
 
