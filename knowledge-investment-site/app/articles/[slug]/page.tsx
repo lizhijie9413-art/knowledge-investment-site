@@ -73,4 +73,8 @@ export default async function ArticlePage({
 >
   {article.content}
 </ReactMarkdown>
-
+</div>
+</div>
+</main>
+);
+}
