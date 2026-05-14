@@ -8,14 +8,22 @@ export default async function ArticlesPage() {
     .order("id", { ascending: false });
 
   return (
-    <div className="min-h-screen bg-black text-white p-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {articles?.map((article) => (
-          <a
-            key={article.id}
-            href={`/articles/${article.slug}`}
-            className="rounded-3xl border border-white/10 bg-[#111] p-6"
-          >
+     <div className="min-h-screen bg-black text-white p-10">
+
+  <a
+    href="/"
+    className="text-amber-400 inline-block mb-8 hover:text-yellow-300 transition"
+  >
+    ← Back Home
+  </a>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+           {articles?.map((article) => (
+  <a
+    key={article.id}
+    href={`/articles/${article.slug}`}
+    className="rounded-3xl border border-white/10 bg-[#111] p-6"
+  >
             <img
               src={article.image}
               alt={article.title}
