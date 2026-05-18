@@ -24,3 +24,39 @@ const articles = [
     slug: "ai-next-decade",
   },
 ];
+export default function ArticlesPage() {
+  return (
+    <main className="min-h-screen bg-black text-white px-8 py-12">
+      <a href="/" className="text-yellow-400 text-xl">
+        ← Back Home
+      </a>
+
+      <div className="grid md:grid-cols-3 gap-10 mt-12">
+        {articles.map((article) => (
+          <div
+            key={article.slug}
+            className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8"
+          >
+            <img
+              src={article.image}
+              alt={article.title}
+              className="w-full h-64 object-cover rounded-2xl mb-8"
+            />
+
+            <h2 className="text-4xl font-bold mb-6">
+              {article.title}
+            </h2>
+
+            <p className="text-zinc-300 text-lg mb-8">
+              {article.description}
+            </p>
+
+            <a href={`/articles/${article.slug}`} className="text-yellow-400 text-xl">
+              Read article →
+            </a>
+          </div>
+        ))}
+      </div>
+    </main>
+  );
+}
