@@ -72,7 +72,7 @@ export default function HomePage() {
 
          <a
   href="/articles"
-  className="bg-gradient-to-r from-purple-600 to-blue-600 px-7 py-4 rounded-2xl font-semibold flex items-center gap-2 hover:opacity-90"
+   className="inline-flex bg-gradient-to-r from-purple-600 to-blue-600 px-7 py-4 rounded-2xl font-semibold items-center gap-2 hover:opacity-90"
 >
   Explore Research
   <ArrowRight size={18} />
@@ -80,8 +80,8 @@ export default function HomePage() {
 
 <a
   href="/about"
-  className="border border-zinc-700 px-7 py-4 rounded-2xl hover:bg-zinc-900 px-7 py-4 rounded-2xl"
->
+  className="inline-flex border border-zinc-700 px-7 py-4 rounded-2xl hover:bg-zinc-900"
+  >
   Learn More
 </a>
 
