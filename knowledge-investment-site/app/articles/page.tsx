@@ -24,36 +24,49 @@ const articles = [
     slug: "ai-next-decade",
   },
 ];
+
 export default function ArticlesPage() {
   return (
     <main className="min-h-screen bg-black text-white px-8 py-12">
-      <a href="/" className="text-blue-400 text-xl">
-  ← Back Home
-</a>
+      {/* Back Button */}
+      <a
+        href="/"
+        className="inline-flex items-center gap-2 text-blue-400 text-xl hover:text-blue-300 mb-12"
+      >
+        ← Back Home
+      </a>
 
-      <div className="grid md:grid-cols-3 gap-10 mt-12">
+      {/* Articles Grid */}
+      <div className="grid md:grid-cols-3 gap-10 mt-8">
         {articles.map((article) => (
           <div
             key={article.slug}
-            className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8"
+            className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-purple-500 transition duration-300"
           >
+            {/* Image */}
             <img
               src={article.image}
               alt={article.title}
               className="w-full h-64 object-cover rounded-2xl mb-8"
             />
 
-            <h2 className="text-4xl font-bold mb-6">
+            {/* Title */}
+            <h2 className="text-4xl font-bold mb-6 leading-tight">
               {article.title}
             </h2>
 
-            <p className="text-zinc-300 text-lg mb-8">
+            {/* Description */}
+            <p className="text-zinc-300 text-lg mb-8 leading-8">
               {article.description}
             </p>
 
-           <a href={`/articles/${article.slug}`} className="text-blue-400 text-xl">
-  Read article →
-</a>
+            {/* Button */}
+            <a
+              href={`/articles/${article.slug}`}
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 px-6 py-3 rounded-2xl font-semibold hover:opacity-90 transition"
+            >
+              Read Article →
+            </a>
           </div>
         ))}
       </div>
