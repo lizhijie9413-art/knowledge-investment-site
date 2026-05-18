@@ -38,7 +38,7 @@ export default function HomePage() {
     <nav className="hidden md:flex gap-10 text-sm text-zinc-300">      
          <a href="/">Home</a>
 <a href="/articles">Research</a>
-<a href="/articles/ai-productivity">Technology</a>
+<a href="/ai-giants">Technology</a>
 <a href="/articles/ai-next-decade">Future</a>
 <a href="/about">About</a>
 </nav>
