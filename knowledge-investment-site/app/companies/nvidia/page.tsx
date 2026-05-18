@@ -80,7 +80,7 @@ export default function NvidiaPage() {
           <iframe
             width="100%"
             height="600"
-            src="https://www.youtube.com/embed/_0Qr2EaSfWQ"
+            src="https://www.youtube.com/embed/DIU48QL5Cyk"
             title="NVIDIA AI Video"
             allowFullScreen
           ></iframe>
