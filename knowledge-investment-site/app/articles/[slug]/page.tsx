@@ -1,80 +1,110 @@
-import ReactMarkdown from "react-markdown";
+const articleContent: any = {
+  "future-of-ai": {
+    title: "The Future of Artificial Intelligence",
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1400&auto=format&fit=crop",
+    video: "https://www.youtube.com/embed/G2fqAlgmoPo",
+    content: `
+Artificial intelligence is rapidly transforming the world.
 
-import { supabase } from "@/lib/supabase";
-import Link from "next/link";
+From healthcare and automation to robotics and intelligent systems,
+AI is becoming one of the most powerful technologies in human history.
 
-export default async function ArticlePage({
+Companies worldwide are investing billions into AI infrastructure,
+large language models, and next-generation computing power.
+
+The next decade may completely reshape how humans work, create,
+communicate, and innovate.
+`,
+  },
+
+  "ai-productivity": {
+    title: "AI Productivity Revolution",
+    image:
+      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1400&auto=format&fit=crop",
+    video: "https://www.youtube.com/embed/SVcsDDABEkM",
+    content: `
+AI productivity tools are changing modern work.
+
+Writers, designers, developers, and businesses can now automate
+many repetitive tasks using artificial intelligence.
+
+AI assistants improve efficiency, creativity, and digital workflows.
+
+This revolution is only beginning.
+`,
+  },
+
+  "ai-next-decade": {
+    title: "Why AI Will Dominate The Next Decade",
+    image:
+      "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1400&auto=format&fit=crop",
+    video: "https://www.youtube.com/embed/2ePf9rue1Ao",
+    content: `
+AI may become the defining technology of the next decade.
+
+From autonomous systems to intelligent robotics and advanced computing,
+AI infrastructure is expanding rapidly worldwide.
+
+Many experts believe AI could become as important as the internet itself.
+`,
+  },
+};
+
+export default function ArticlePage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }) {
-  const { slug } = await params;
-
-  const { data: article } = await supabase
-    .from("articles")
-    .select("*")
-    .eq("slug", slug)
-    .maybeSingle();
+  const article = articleContent[params.slug];
 
   if (!article) {
     return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center">
-        <h1 className="text-5xl font-bold">Article Not Found</h1>
-      </div>
+      <main className="min-h-screen bg-black text-white flex items-center justify-center text-6xl font-bold">
+        Article Not Found
+      </main>
     );
   }
 
   return (
-    <main className="min-h-screen bg-black text-white px-6 py-16">
-      <div className="max-w-4xl mx-auto">
-<a
-  href="https://knowledge-investment-site.vercel.app/articles"
-  className="text-amber-400 inline-block mb-6 hover:text-yellow-300 transition cursor-pointer relative z-50"
->
-  ← Back to Articles
-</a>
+    <main className="min-h-screen bg-black text-white">
+      {/* HERO IMAGE */}
+      <div className="w-full h-[500px] overflow-hidden">
+        <img
+          src={article.image}
+          alt={article.title}
+          className="w-full h-full object-cover"
+        />
+      </div>
 
-        <h1 className="mt-8 text-5xl font-bold text-amber-400">
+      {/* CONTENT */}
+      <section className="max-w-5xl mx-auto px-8 py-20">
+        <a
+          href="/articles"
+          className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 px-6 py-3 rounded-2xl font-semibold hover:opacity-90 transition mb-12"
+        >
+          ← Back Articles
+        </a>
+
+        <h1 className="text-6xl font-bold leading-tight mb-10">
           {article.title}
         </h1>
 
-        {article.image && (
-          <img
-            src={article.image}
-            alt={article.title}
-            className="mt-10 w-full rounded-3xl"
-          />
-        )}
+        <p className="text-zinc-300 text-2xl leading-10 whitespace-pre-line mb-16">
+          {article.content}
+        </p>
 
-      <div className="mt-10 prose prose-invert max-w-none prose-headings:text-amber-400 prose-p:text-white/80">
-           <ReactMarkdown
-  components={{
-    h1: ({ children }) => (
-      <h1 className="text-5xl font-bold text-amber-400 mb-8 mt-10">
-        {children}
-      </h1>
-    ),
-    h2: ({ children }) => (
-      <h2 className="text-3xl font-bold text-amber-300 mb-6 mt-10">
-        {children}
-      </h2>
-    ),
-    p: ({ children }) => (
-      <p className="text-white/80 text-xl leading-9 mb-6">
-        {children}
-      </p>
-    ),
-    li: ({ children }) => (
-      <li className="text-white/80 text-xl mb-2">
-        {children}
-      </li>
-    ),
-  }}
->
-  {article.content}
-</ReactMarkdown>
-</div>
-</div>
-</main>
-);
+        {/* VIDEO */}
+        <div className="rounded-3xl overflow-hidden border border-zinc-800">
+          <iframe
+            width="100%"
+            height="600"
+            src={article.video}
+            title="YouTube video player"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </section>
+    </main>
+  );
 }
