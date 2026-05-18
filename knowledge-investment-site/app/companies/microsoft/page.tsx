@@ -1,4 +1,3 @@
-// app/companies/microsoft/page.tsx
 export default function MicrosoftPage() {
   return (
     <main className="min-h-screen bg-black text-white">
