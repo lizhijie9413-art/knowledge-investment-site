@@ -57,7 +57,7 @@ export default async function ArticlePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const article = articleContent[slug];
+  const article = articleContent[String(slug)];
  
   if (!article) {
     return (
