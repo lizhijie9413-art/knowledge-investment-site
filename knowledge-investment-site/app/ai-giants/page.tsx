@@ -100,7 +100,9 @@ href={
     ? "/companies/meta"
     : company.name === "Amazon"
     ? "/companies/amazon"
-    : "#"
+    : company.name === "Tesla"
+? "/companies/tesla"
+: "#"
 }
   className="inline-flex bg-gradient-to-r from-purple-600 to-blue-600 px-5 py-3 rounded-2xl font-semibold hover:opacity-90"
 >
