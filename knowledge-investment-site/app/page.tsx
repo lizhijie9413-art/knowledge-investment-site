@@ -35,17 +35,20 @@ export default function HomePage() {
             XENOVATE AI
           </h1>
 
-          <nav className="hidden md:flex gap-10 text-sm text-zinc-300">
-            <a href="#">Home</a>
-            <a href="#">Research</a>
-            <a href="#">Technology</a>
-            <a href="#">Future</a>
-            <a href="#">About</a>
-          </nav>
-
-          <button className="bg-gradient-to-r from-purple-600 to-blue-600 px-5 py-2 rounded-xl font-medium hover:opacity-90">
-            Get Started
-          </button>
+    <nav className="hidden md:flex gap-10 text-sm text-zinc-300">      
+         <a href="/">Home</a>
+<a href="/articles">Research</a>
+<a href="/articles/ai-productivity">Technology</a>
+<a href="/articles/ai-next-decade">Future</a>
+<a href="/about">About</a>
+</nav>
+         <a
+  href="/articles"
+  className="bg-gradient-to-r from-purple-600 to-blue-600 px-5 py-2 rounded-xl font-medium hover:opacity-90"
+>
+  Get Started
+</a>
+          
         </div>
       </header>
 
