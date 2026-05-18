@@ -51,13 +51,14 @@ Many experts believe AI could become as important as the internet itself.
   },
 };
 
-export default function ArticlePage({
+export default async function ArticlePage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const article = articleContent[params.slug];
-
+  const { slug } = await params;
+  const article = articleContent[slug];
+ 
   if (!article) {
     return (
       <main className="min-h-screen bg-black text-white flex items-center justify-center text-6xl font-bold">
