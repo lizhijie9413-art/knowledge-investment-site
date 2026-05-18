@@ -29,12 +29,12 @@ export default function ArticlesPage() {
   return (
     <main className="min-h-screen bg-black text-white px-8 py-12">
       {/* Back Button */}
-      <a
-        href="/"
-        className="inline-flex items-center gap-2 text-blue-400 text-xl hover:text-blue-300 mb-12"
-      >
-        ← Back Home
-      </a>
+   <a 
+  href="/"
+  className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 px-6 py-3 rounded-2xl font-semibold hover:opacity-90 transition mb-12"
+>
+  ← Back Home
+</a>
 
       {/* Articles Grid */}
       <div className="grid md:grid-cols-3 gap-10 mt-8">
