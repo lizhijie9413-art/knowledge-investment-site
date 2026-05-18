@@ -76,15 +76,15 @@ export default function NvidiaPage() {
           </p>
         </section>
 
-        <video
-  controls
-  autoPlay
-  muted
-  loop
-  className="w-full rounded-3xl border border-zinc-800"
->
-  <source src="/videos/nvidia.mp4" type="video/mp4" />
-</video>
+      <div className="rounded-3xl overflow-hidden border border-zinc-800">
+  <iframe
+    width="100%"
+    height="600"
+    src="https://youtu.be/d24W8AqeOHM?si=b2CIQrNhCY8iTv1U"
+    title="NVIDIA AI Video"
+    allowFullScreen
+  ></iframe>
+</div>
        
       </section>
     </main>
