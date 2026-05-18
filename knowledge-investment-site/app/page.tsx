@@ -151,10 +151,19 @@ export default function HomePage() {
                 {card.desc}
               </p>
 
-              <button className="mt-8 text-purple-400 flex items-center gap-2">
-                Learn More
-                <ArrowRight size={16} />
-              </button>
+              <a
+  href={
+    index === 0
+      ? "/articles/future-of-ai"
+      : index === 1
+      ? "/articles/ai-productivity"
+      : "/articles/ai-next-decade"
+  }
+  className="mt-8 text-purple-400 inline-flex items-center gap-2 hover:text-blue-400 transition"
+>
+  Learn More
+  <ArrowRight size={16} />
+</a>
             </div>
           ))}
         </div>
