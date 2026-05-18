@@ -56,7 +56,7 @@ export default function OpenAIPage() {
           <iframe
             width="100%"
             height="600"
-            src="https://www.youtube.com/embed/SVcsDDABEkM"
+            src="https://www.youtube.com/embed/T-D1OfcDW1M"
             title="OpenAI Video"
             allowFullScreen
           ></iframe>
