@@ -27,9 +27,9 @@ const articles = [
 export default function ArticlesPage() {
   return (
     <main className="min-h-screen bg-black text-white px-8 py-12">
-      <a href="/" className="text-yellow-400 text-xl">
-        ← Back Home
-      </a>
+      <a href="/" className="text-blue-400 text-xl">
+  ← Back Home
+</a>
 
       <div className="grid md:grid-cols-3 gap-10 mt-12">
         {articles.map((article) => (
@@ -51,9 +51,9 @@ export default function ArticlesPage() {
               {article.description}
             </p>
 
-            <a href={`/articles/${article.slug}`} className="text-yellow-400 text-xl">
-              Read article →
-            </a>
+           <a href={`/articles/${article.slug}`} className="text-blue-400 text-xl">
+  Read article →
+</a>
           </div>
         ))}
       </div>
