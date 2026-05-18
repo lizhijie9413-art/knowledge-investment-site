@@ -82,7 +82,7 @@ export default function GooglePage() {
           <iframe
             width="100%"
             height="600"
-            src="https://www.youtube.com/embed/c3b-JASoPi0"
+           src="https://www.youtube.com/embed/kCc8FmEb1nY"
             title="Google AI Video"
             allowFullScreen
           ></iframe>
