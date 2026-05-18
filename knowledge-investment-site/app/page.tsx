@@ -128,9 +128,7 @@ export default function HomePage() {
           </div>
         </section>
       </section>
-    </main>
-  );
-}
+  
 
       <footer className="border-t border-white/10 px-6 py-8 text-center text-white/50">
         © 2026 Knowledge Capital. Investment education only. Not financial advice.
