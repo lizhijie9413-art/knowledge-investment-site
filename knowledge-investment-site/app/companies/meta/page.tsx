@@ -55,7 +55,7 @@ export default function MetaPage() {
           <iframe
             width="100%"
             height="600"
-            src="https://www.youtube.com/embed/4sL5HCGM8sQ"
+            src="https://www.youtube.com/embed/2ePf9rue1Ao"
             title="Meta AI Video"
             allowFullScreen
           ></iframe>
