@@ -1,11 +1,19 @@
 export default function MicrosoftPage() {
   return (
     <main className="min-h-screen bg-black text-white">
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <h1 className="text-6xl font-bold mb-8">
-          Microsoft & The AI Revolution
-        </h1>
 
+        <section className="max-w-6xl mx-auto px-6 py-20">
+
+  <a
+    href="/ai-giants"
+    className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 px-6 py-3 rounded-2xl font-semibold hover:opacity-90 mb-12"
+  >
+    ← Back AI Giants
+  </a>
+ 
+  <h1 className="text-6xl font-bold mb-8">
+   Microsoft & The AI Revolution
+</h1>
         <p className="text-zinc-300 text-xl leading-9 mb-10">
           Microsoft is becoming one of the most important companies in the AI era.
           Through its partnership with OpenAI, Azure cloud infrastructure, and
