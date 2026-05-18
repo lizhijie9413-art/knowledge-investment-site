@@ -87,11 +87,19 @@ export default function AIGiantsPage() {
                 </p>
 
               <a
- href={
+href={
   company.name === "NVIDIA"
     ? "/companies/nvidia"
     : company.name === "Google"
     ? "/companies/google"
+    : company.name === "Microsoft"
+    ? "/companies/microsoft"
+    : company.name === "OpenAI"
+    ? "/companies/openai"
+    : company.name === "Meta"
+    ? "/companies/meta"
+    : company.name === "Amazon"
+    ? "/companies/amazon"
     : "#"
 }
   className="inline-flex bg-gradient-to-r from-purple-600 to-blue-600 px-5 py-3 rounded-2xl font-semibold hover:opacity-90"
