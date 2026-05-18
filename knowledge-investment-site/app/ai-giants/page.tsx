@@ -86,9 +86,12 @@ export default function AIGiantsPage() {
                   {company.desc}
                 </p>
 
-                <button className="bg-gradient-to-r from-purple-600 to-blue-600 px-5 py-3 rounded-2xl font-semibold hover:opacity-90">
-                  Learn More
-                </button>
+              <a
+  href={company.name === "NVIDIA" ? "/companies/nvidia" : "#"}
+  className="inline-flex bg-gradient-to-r from-purple-600 to-blue-600 px-5 py-3 rounded-2xl font-semibold hover:opacity-90"
+>
+  Learn More
+</a>
               </div>
             </div>
           ))}
