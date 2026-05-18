@@ -70,16 +70,20 @@ export default function HomePage() {
             innovation, and long-term technological growth.
           </p>
 
-          <div className="mt-10 flex gap-5">
-            <button className="bg-gradient-to-r from-purple-600 to-blue-600 px-7 py-4 rounded-2xl font-semibold flex items-center gap-2">
-              Explore Research
-              <ArrowRight size={18} />
-            </button>
+         <a
+  href="/articles"
+  className="bg-gradient-to-r from-purple-600 to-blue-600 px-7 py-4 rounded-2xl font-semibold flex items-center gap-2 hover:opacity-90"
+>
+  Explore Research
+  <ArrowRight size={18} />
+</a>
 
-            <button className="border border-zinc-700 px-7 py-4 rounded-2xl hover:bg-zinc-900">
-              Learn More
-            </button>
-          </div>
+<a
+  href="/about"
+  className="border border-zinc-700 px-7 py-4 rounded-2xl hover:bg-zinc-900 px-7 py-4 rounded-2xl"
+>
+  Learn More
+</a>
 
           <div className="mt-16 flex gap-16">
             <div>
