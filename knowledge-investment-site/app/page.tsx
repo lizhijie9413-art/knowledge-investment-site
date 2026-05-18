@@ -1,137 +1,172 @@
 "use client";
 
-import Link from "next/link";
 import {
-  ArrowRight,
   Brain,
-  Bitcoin,
   Cpu,
-  BookOpen,
+  Sparkles,
+  ArrowRight,
 } from "lucide-react";
 
 export default function HomePage() {
-  const categories = [
+  const cards = [
     {
-      icon: <Brain className="h-8 w-8" />,
-      title: "AI Revolution",
-      desc: "Explore how artificial intelligence is reshaping the future of humanity and industries.",
+      icon: <Brain className="h-8 w-8 text-purple-500" />,
+      title: "AI Intelligence",
+      desc: "Discover how artificial intelligence is transforming the future of humanity and global industries.",
     },
     {
-      icon: <Cpu className="h-8 w-8" />,
-      title: "AI Productivity",
-      desc: "Discover how AI tools create leverage and productivity for ordinary people.",
+      icon: <Cpu className="h-8 w-8 text-blue-500" />,
+      title: "Future Technology",
+      desc: "Explore the rise of automation, robotics, computing power, and AI infrastructure.",
     },
     {
-      icon: <Bitcoin className="h-8 w-8" />,
-      title: "Digital Assets",
-      desc: "Understand Bitcoin, blockchain, and the future financial system.",
+      icon: <Sparkles className="h-8 w-8 text-pink-500" />,
+      title: "Long-Term Vision",
+      desc: "Understand the long-term value and opportunities created by the AI revolution.",
     },
-    {
-      icon: <BookOpen className="h-8 w-8" />,
-      title: "Future Wealth",
-      desc: "Long-term thinking about capital, technology, and wealth creation.",
-    },
-  ];
-
-  const articles = [
-    "Why AI Will Change Human Civilization",
-    "The Future Relationship Between AI and Bitcoin",
-    "How AI Productivity Creates New Wealth",
-    "Why Long-Term Thinkers Win in the AI Era",
   ];
 
   return (
     <main className="min-h-screen bg-black text-white">
-      <section className="px-6 py-8 max-w-7xl mx-auto">
-        <nav className="flex items-center justify-between mb-24">
-          <h1 className="text-2xl font-bold text-amber-400">
-            Future Intelligence Capital
+      {/* NAVBAR */}
+      <header className="border-b border-zinc-800">
+        <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+          <h1 className="text-2xl font-bold tracking-wider">
+            XENOVATE AI
           </h1>
 
-          <div className="flex gap-6 text-sm text-white/70">
-            <Link href="/articles" className="hover:text-amber-400">
-              Articles
-            </Link>
+          <nav className="hidden md:flex gap-10 text-sm text-zinc-300">
+            <a href="#">Home</a>
+            <a href="#">Research</a>
+            <a href="#">Technology</a>
+            <a href="#">Future</a>
+            <a href="#">About</a>
+          </nav>
 
-            <Link href="/about" className="hover:text-amber-400">
-              About
-            </Link>
+          <button className="bg-gradient-to-r from-purple-600 to-blue-600 px-5 py-2 rounded-xl font-medium hover:opacity-90">
+            Get Started
+          </button>
+        </div>
+      </header>
 
-            <Link href="/admin" className="hover:text-amber-400">
-              Admin
-            </Link>
+      {/* HERO */}
+      <section className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <p className="uppercase tracking-[0.3em] text-purple-400 mb-4">
+            AI Future Platform
+          </p>
+
+          <h2 className="text-5xl md:text-7xl font-bold leading-tight">
+            THE NEXT ERA OF
+            <span className="block bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+              INTELLIGENCE
+            </span>
+            BEGINS HERE
+          </h2>
+
+          <p className="mt-8 text-zinc-400 text-lg leading-8 max-w-xl">
+            Explore the future of artificial intelligence,
+            intelligent systems, AI productivity,
+            innovation, and long-term technological growth.
+          </p>
+
+          <div className="mt-10 flex gap-5">
+            <button className="bg-gradient-to-r from-purple-600 to-blue-600 px-7 py-4 rounded-2xl font-semibold flex items-center gap-2">
+              Explore Research
+              <ArrowRight size={18} />
+            </button>
+
+            <button className="border border-zinc-700 px-7 py-4 rounded-2xl hover:bg-zinc-900">
+              Learn More
+            </button>
           </div>
-        </nav>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <p className="text-amber-400 font-semibold mb-4">
-              AI • Future • Capital • Digital Intelligence
-            </p>
+          <div className="mt-16 flex gap-16">
+            <div>
+              <h3 className="text-4xl font-bold text-purple-400">
+                180K+
+              </h3>
+              <p className="text-zinc-500 mt-2">
+                AI insights generated
+              </p>
+            </div>
 
-            <h2 className="text-5xl md:text-7xl font-bold leading-tight mb-8">
-              The Future of AI,
-              <br />
-              Wealth & Human Productivity
-            </h2>
-
-            <p className="text-xl text-white/70 leading-relaxed mb-10">
-              Researching the long-term impact of artificial intelligence,
-              digital assets, productivity leverage, and future capital trends.
-            </p>
-
-            <Link
-              href="/articles"
-              className="inline-flex items-center gap-3 bg-amber-400 text-black px-8 py-4 rounded-2xl font-semibold hover:bg-amber-300 transition"
-            >
-              Explore Articles
-              <ArrowRight className="h-5 w-5" />
-            </Link>
-          </div>
-
-          <div className="grid gap-6">
-            {categories.map((item, index) => (
-              <div
-                key={index}
-                className="border border-white/10 bg-[#111] rounded-3xl p-8 hover:border-amber-400/40 transition"
-              >
-                <div className="text-amber-400 mb-4">{item.icon}</div>
-
-                <h3 className="text-2xl font-bold mb-3">
-                  {item.title}
-                </h3>
-
-                <p className="text-white/70 leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
+            <div>
+              <h3 className="text-4xl font-bold text-blue-400">
+                900K+
+              </h3>
+              <p className="text-zinc-500 mt-2">
+                Future innovators worldwide
+              </p>
+            </div>
           </div>
         </div>
 
-        <section className="mt-32">
-          <h3 className="text-4xl font-bold mb-10 text-amber-400">
-            Featured Research
-          </h3>
+        {/* RIGHT PANEL */}
+        <div className="relative">
+          <div className="absolute inset-0 bg-purple-600/20 blur-3xl rounded-full"></div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {articles.map((article, index) => (
-              <div
-                key={index}
-                className="bg-[#111] border border-white/10 rounded-3xl p-8 hover:border-amber-400/40 transition"
-              >
-                <h4 className="text-2xl font-bold leading-relaxed">
-                  {article}
-                </h4>
-              </div>
-            ))}
+          <div className="relative bg-zinc-900 border border-zinc-800 rounded-3xl p-10 overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop"
+              alt="AI"
+              className="rounded-2xl object-cover w-full h-[500px]"
+            />
           </div>
-        </section>
+        </div>
       </section>
-  
 
-      <footer className="border-t border-white/10 px-6 py-8 text-center text-white/50">
-        © 2026 Knowledge Capital. Investment education only. Not financial advice.
+      {/* FEATURES */}
+      <section className="max-w-7xl mx-auto px-6 py-20">
+        <div className="mb-16">
+          <p className="text-purple-400 uppercase tracking-[0.2em] mb-3">
+            Built For The Future
+          </p>
+
+          <h2 className="text-5xl font-bold">
+            AI-Powered Tools
+            <span className="text-blue-400">
+              {" "}For Intelligent Minds
+            </span>
+          </h2>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {cards.map((card, index) => (
+            <div
+              key={index}
+              className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 hover:border-purple-500 transition"
+            >
+              <div className="mb-6">{card.icon}</div>
+
+              <h3 className="text-2xl font-semibold mb-4">
+                {card.title}
+              </h3>
+
+              <p className="text-zinc-400 leading-7">
+                {card.desc}
+              </p>
+
+              <button className="mt-8 text-purple-400 flex items-center gap-2">
+                Learn More
+                <ArrowRight size={16} />
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-zinc-800 mt-20">
+        <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between text-zinc-500">
+          <p>© 2026 Xenovate AI. All rights reserved.</p>
+
+          <div className="flex gap-6 mt-4 md:mt-0">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Contact</a>
+          </div>
+        </div>
       </footer>
     </main>
   );
