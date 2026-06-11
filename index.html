@@ -622,7 +622,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0;
+      opacity: 1;
     }
 
     .reel-visual.has-video video {
@@ -795,6 +795,215 @@
         #08090e;
     }
 
+    .tech-band {
+      background:
+        linear-gradient(180deg, rgba(255, 209, 102, 0.08), transparent 44%),
+        linear-gradient(120deg, rgba(67, 217, 255, 0.045), transparent 50%),
+        #06070b;
+    }
+
+    .tech-atlas {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .tech-card {
+      position: relative;
+      min-height: 250px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.026)),
+        rgba(10, 15, 24, 0.72);
+      overflow: hidden;
+    }
+
+    .tech-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, transparent, rgba(67, 217, 255, 0.16), transparent),
+        repeating-linear-gradient(0deg, transparent 0 18px, rgba(255, 255, 255, 0.035) 19px);
+      transform: translateX(-100%);
+      animation: scanLine 5.8s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .tech-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(67, 217, 255, 0.3);
+      border-radius: 8px;
+      color: var(--cyan);
+      background: rgba(67, 217, 255, 0.09);
+      font-weight: 900;
+    }
+
+    .tech-card h3 {
+      position: relative;
+      margin: 18px 0 10px;
+      font-size: 23px;
+      line-height: 1.12;
+    }
+
+    .tech-card p {
+      position: relative;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.66;
+    }
+
+    .tech-readout {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      margin-top: 18px;
+      align-items: center;
+      color: #dce6f7;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .tech-meter {
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+
+    .tech-meter span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--green), var(--cyan), var(--gold));
+    }
+
+    .interface-wall {
+      max-width: 1180px;
+      margin: 18px auto 0;
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 18px;
+    }
+
+    .interface-controls,
+    .interface-display {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      padding: 22px;
+    }
+
+    .interface-controls {
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .interface-button {
+      min-height: 54px;
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.045);
+      color: var(--text);
+      text-align: left;
+      padding: 10px 12px;
+      cursor: pointer;
+    }
+
+    .interface-button span:first-child {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: rgba(80, 239, 173, 0.12);
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    .interface-button.active {
+      border-color: rgba(80, 239, 173, 0.62);
+      background: rgba(80, 239, 173, 0.1);
+    }
+
+    .interface-display {
+      min-height: 380px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .interface-display::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at center, black, transparent 78%);
+    }
+
+    .interface-display > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .interface-display h3 {
+      margin: 18px 0 12px;
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.06;
+    }
+
+    .interface-display p {
+      max-width: 680px;
+      color: var(--muted);
+      line-height: 1.78;
+    }
+
+    .data-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .data-cell {
+      min-height: 92px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.048);
+    }
+
+    .data-cell b {
+      display: block;
+      color: var(--gold);
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    @keyframes scanLine {
+      0%, 22% {
+        transform: translateX(-100%);
+      }
+      58%, 100% {
+        transform: translateX(100%);
+      }
+    }
+
     .timeline {
       max-width: 1180px;
       margin: 0 auto;
@@ -938,6 +1147,7 @@
       .ecosystem-grid,
       .lab,
       .reel-grid,
+      .interface-wall,
       .playground,
       .section-head {
         grid-template-columns: 1fr;
@@ -958,6 +1168,10 @@
 
       .trend-board {
         grid-template-columns: 1fr;
+      }
+
+      .tech-atlas {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .reel-card,
@@ -1014,6 +1228,8 @@
       .pulse,
       .segmented,
       .mood-row,
+      .tech-atlas,
+      .data-row,
       .idea-grid {
         grid-template-columns: 1fr;
       }
@@ -1031,6 +1247,7 @@
         <a href="#ecosystem">Ecosystem Map</a>
         <a href="#lab">Trend Lab</a>
         <a href="#reels">AI Life Reels</a>
+        <a href="#tech">Tech Atlas</a>
         <a href="#signals">Signals</a>
         <a href="#play">Idea Lab</a>
       </nav>
@@ -1143,8 +1360,11 @@
 
         <div class="reel-grid">
           <article class="reel-card">
-            <div class="reel-visual" data-video="assets/videos/ai-life-morning.mp4">
-              <video muted loop playsinline preload="metadata"></video>
+            <div class="reel-visual">
+              <video muted loop playsinline controls preload="metadata" poster="assets/ai-ecosystem-hero.png">
+                <source src="assets/videos/ai-life-morning.webm" type="video/webm">
+                <source src="assets/videos/ai-life-morning.mp4" type="video/mp4">
+              </video>
               <div class="reel-motion"></div>
               <div class="reel-gridlines"></div>
               <div class="reel-caption"><span>Daily AI</span><span>00:24</span></div>
@@ -1159,8 +1379,11 @@
 
           <div class="reel-stack">
             <article class="reel-card">
-              <div class="reel-visual" data-video="assets/videos/ai-life-home.mp4">
-                <video muted loop playsinline preload="metadata"></video>
+              <div class="reel-visual">
+                <video muted loop playsinline controls preload="metadata" poster="assets/ai-ecosystem-hero.png">
+                  <source src="assets/videos/ai-life-home.webm" type="video/webm">
+                  <source src="assets/videos/ai-life-home.mp4" type="video/mp4">
+                </video>
                 <div class="reel-motion"></div>
                 <div class="reel-gridlines"></div>
                 <div class="reel-caption"><span>Smart Home</span><span>00:18</span></div>
@@ -1174,8 +1397,11 @@
             </article>
 
             <article class="reel-card">
-              <div class="reel-visual" data-video="assets/videos/ai-life-learning-health.mp4">
-                <video muted loop playsinline preload="metadata"></video>
+              <div class="reel-visual">
+                <video muted loop playsinline controls preload="metadata" poster="assets/ai-ecosystem-hero.png">
+                  <source src="assets/videos/ai-life-learning-health.webm" type="video/webm">
+                  <source src="assets/videos/ai-life-learning-health.mp4" type="video/mp4">
+                </video>
                 <div class="reel-motion"></div>
                 <div class="reel-gridlines"></div>
                 <div class="reel-caption"><span>Learning + Health</span><span>00:21</span></div>
@@ -1187,6 +1413,73 @@
                 <div class="reel-meta"><span>AI tutor</span><span>Wellness signals</span></div>
               </div>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="tech-band" id="tech">
+        <div class="section-head">
+          <h2>AI Tech Atlas</h2>
+          <p>A stronger AI future site should not only show applications. It should reveal the deeper technology layers powering them: models, chips, robotics, spatial interfaces, cybersecurity, and frontier science.</p>
+        </div>
+
+        <div class="tech-atlas">
+          <article class="tech-card">
+            <div class="tech-icon">LLM</div>
+            <h3>Foundation Models</h3>
+            <p>Large language and multimodal models become the reasoning layer behind agents, search, design, coding, and decision support.</p>
+            <div class="tech-readout"><div class="tech-meter"><span style="width: 92%"></span></div><span>Capability 92</span></div>
+          </article>
+          <article class="tech-card">
+            <div class="tech-icon">GPU</div>
+            <h3>AI Chips and Compute</h3>
+            <p>GPUs, NPUs, edge accelerators, and cloud clusters form the invisible engine that decides what AI products can do at scale.</p>
+            <div class="tech-readout"><div class="tech-meter"><span style="width: 88%"></span></div><span>Scale 88</span></div>
+          </article>
+          <article class="tech-card">
+            <div class="tech-icon">BOT</div>
+            <h3>Robotics and Embodiment</h3>
+            <p>When models learn action, AI moves from screens into warehouses, factories, homes, vehicles, and assistive machines.</p>
+            <div class="tech-readout"><div class="tech-meter"><span style="width: 81%"></span></div><span>Motion 81</span></div>
+          </article>
+          <article class="tech-card">
+            <div class="tech-icon">XR</div>
+            <h3>Spatial Interfaces</h3>
+            <p>AR glasses, 3D dashboards, and ambient displays make AI feel less like a chatbot and more like a layer over the world.</p>
+            <div class="tech-readout"><div class="tech-meter"><span style="width: 74%"></span></div><span>Immersion 74</span></div>
+          </article>
+          <article class="tech-card">
+            <div class="tech-icon">SEC</div>
+            <h3>AI Cybersecurity</h3>
+            <p>AI creates new attack surfaces, but also gives defenders faster anomaly detection, code review, identity checks, and threat simulation.</p>
+            <div class="tech-readout"><div class="tech-meter"><span style="width: 86%"></span></div><span>Defense 86</span></div>
+          </article>
+          <article class="tech-card">
+            <div class="tech-icon">Q</div>
+            <h3>Frontier Science</h3>
+            <p>AI accelerates materials discovery, biology, climate modeling, simulations, and future intersections with quantum computing.</p>
+            <div class="tech-readout"><div class="tech-meter"><span style="width: 79%"></span></div><span>Discovery 79</span></div>
+          </article>
+        </div>
+
+        <div class="interface-wall">
+          <div class="interface-controls">
+            <div class="panel-kicker">Future Interface Wall</div>
+            <button class="interface-button active" type="button" data-interface="agent"><span>A</span><span>Agent Command Center</span></button>
+            <button class="interface-button" type="button" data-interface="city"><span>C</span><span>City Digital Twin</span></button>
+            <button class="interface-button" type="button" data-interface="lab"><span>L</span><span>AI Research Lab</span></button>
+            <button class="interface-button" type="button" data-interface="creator"><span>M</span><span>Multimodal Studio</span></button>
+          </div>
+
+          <div class="interface-display" aria-live="polite">
+            <div class="panel-kicker" id="interfaceKicker">Agentic Systems</div>
+            <h3 id="interfaceTitle">A control room for AI agents</h3>
+            <p id="interfaceText">Visitors can imagine a future where AI agents research, plan, design, code, review, and report progress through one transparent command center.</p>
+            <div class="data-row">
+              <div class="data-cell"><b id="dataA">24/7</b><span>autonomous monitoring</span></div>
+              <div class="data-cell"><b id="dataB">8x</b><span>parallel task handling</span></div>
+              <div class="data-cell"><b id="dataC">Human</b><span>final approval layer</span></div>
+            </div>
           </div>
         </div>
       </section>
@@ -1420,14 +1713,10 @@
     document.querySelectorAll(".reel-visual").forEach((visual) => {
       const video = visual.querySelector("video");
       const button = visual.querySelector(".reel-play");
-      const src = visual.dataset.video;
-      if (src && video) {
-        video.src = src;
-        video.addEventListener("canplay", () => {
-          visual.classList.add("has-video");
-          video.play().catch(() => {});
-        });
-      }
+      video?.addEventListener("loadeddata", () => {
+        visual.classList.add("has-video");
+        video.play().catch(() => {});
+      });
       button?.addEventListener("click", () => {
         if (video && visual.classList.contains("has-video")) {
           if (video.paused) {
@@ -1447,6 +1736,61 @@
           ],
           { duration: 420, easing: "ease-out" }
         );
+      });
+    });
+
+    const interfaceData = {
+      agent: {
+        kicker: "Agentic Systems",
+        title: "A control room for AI agents",
+        text: "Visitors can imagine a future where AI agents research, plan, design, code, review, and report progress through one transparent command center.",
+        stats: ["24/7", "8x", "Human"],
+        labels: ["autonomous monitoring", "parallel task handling", "final approval layer"]
+      },
+      city: {
+        kicker: "Urban Intelligence",
+        title: "A digital twin for living cities",
+        text: "Traffic, energy, weather, public safety, mobility, and emergency response are simulated in real time so city teams can test decisions before they affect people.",
+        stats: ["Real-time", "6 layers", "Predictive"],
+        labels: ["city sensing", "urban systems", "risk simulation"]
+      },
+      lab: {
+        kicker: "Scientific Discovery",
+        title: "An AI lab that explores faster",
+        text: "Models help scientists screen materials, compare biology pathways, generate hypotheses, and run simulations before expensive physical experiments begin.",
+        stats: ["10k+", "Model-led", "Validated"],
+        labels: ["candidate scans", "hypothesis generation", "human review"]
+      },
+      creator: {
+        kicker: "Creative Technology",
+        title: "A multimodal studio for everyone",
+        text: "Text, image, video, sound, voice, and 3D assets become one creative workspace where people direct AI systems like a production team.",
+        stats: ["Text+Video", "Voice", "3D"],
+        labels: ["story generation", "audio direction", "interactive assets"]
+      }
+    };
+
+    const interfaceButtons = document.querySelectorAll(".interface-button");
+    const interfaceKicker = document.getElementById("interfaceKicker");
+    const interfaceTitle = document.getElementById("interfaceTitle");
+    const interfaceText = document.getElementById("interfaceText");
+    const dataCells = [
+      [document.getElementById("dataA"), document.querySelector(".data-cell:nth-child(1) span")],
+      [document.getElementById("dataB"), document.querySelector(".data-cell:nth-child(2) span")],
+      [document.getElementById("dataC"), document.querySelector(".data-cell:nth-child(3) span")]
+    ];
+
+    interfaceButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const data = interfaceData[button.dataset.interface];
+        interfaceButtons.forEach((item) => item.classList.toggle("active", item === button));
+        interfaceKicker.textContent = data.kicker;
+        interfaceTitle.textContent = data.title;
+        interfaceText.textContent = data.text;
+        dataCells.forEach(([value, label], index) => {
+          value.textContent = data.stats[index];
+          label.textContent = data.labels[index];
+        });
       });
     });
 
