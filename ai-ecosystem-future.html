@@ -1,0 +1,1859 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Ecosystem Futures</title>
+  <meta name="description" content="A futuristic website for AI trends, ecosystems, scenarios, and interactive experiments.">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #06070b;
+      --panel: rgba(12, 18, 30, 0.76);
+      --panel-strong: rgba(20, 28, 42, 0.92);
+      --line: rgba(255, 255, 255, 0.14);
+      --text: #f5f8ff;
+      --muted: #aeb8c8;
+      --cyan: #43d9ff;
+      --green: #50efad;
+      --coral: #ff7a6f;
+      --gold: #ffd166;
+      --violet: #a58cff;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, "PingFang SC", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+      letter-spacing: 0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent 72%);
+      z-index: -2;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    .shell {
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px clamp(18px, 4vw, 56px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(6, 7, 11, 0.66);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      min-width: 190px;
+      font-weight: 760;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(67, 217, 255, 0.42);
+      border-radius: 8px;
+      background: linear-gradient(145deg, rgba(67, 217, 255, 0.22), rgba(80, 239, 173, 0.14));
+      color: var(--cyan);
+      box-shadow: 0 0 32px rgba(67, 217, 255, 0.18);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      padding: 9px 11px;
+      color: var(--muted);
+      border-radius: 8px;
+      font-size: 14px;
+      transition: color 180ms ease, background 180ms ease;
+    }
+
+    .nav a:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .signal {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--green);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .signal::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 18px var(--green);
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      align-items: end;
+      position: relative;
+      padding: 140px clamp(18px, 5vw, 76px) 72px;
+      background:
+        linear-gradient(90deg, rgba(6, 7, 11, 0.98) 0%, rgba(6, 7, 11, 0.72) 42%, rgba(6, 7, 11, 0.2) 100%),
+        linear-gradient(0deg, #06070b 0%, rgba(6, 7, 11, 0.16) 46%, rgba(6, 7, 11, 0.74) 100%),
+        url("assets/ai-ecosystem-hero.png") center right / cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 160px;
+      background: linear-gradient(to top, #06070b, transparent);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(760px, 100%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 42px;
+      height: 1px;
+      background: var(--green);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 720px;
+      font-size: clamp(44px, 8vw, 104px);
+      line-height: 0.94;
+      letter-spacing: 0;
+    }
+
+    .hero p {
+      max-width: 660px;
+      margin: 24px 0 0;
+      color: #d6deec;
+      font-size: clamp(17px, 2.4vw, 22px);
+      line-height: 1.72;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.08);
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(67, 217, 255, 0.66);
+      background: rgba(67, 217, 255, 0.13);
+    }
+
+    .btn.primary {
+      border-color: rgba(80, 239, 173, 0.5);
+      background: linear-gradient(135deg, rgba(80, 239, 173, 0.24), rgba(67, 217, 255, 0.2));
+    }
+
+    .hero-metrics {
+      position: relative;
+      z-index: 3;
+      width: min(1120px, calc(100vw - 36px));
+      margin: -34px auto 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(11, 15, 24, 0.82);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .metric {
+      min-height: 112px;
+      padding: 22px;
+      border-right: 1px solid var(--line);
+    }
+
+    .metric:last-child {
+      border-right: 0;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: clamp(24px, 4vw, 38px);
+      line-height: 1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    section {
+      padding: 96px clamp(18px, 5vw, 76px);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(260px, 0.55fr);
+      gap: 40px;
+      align-items: end;
+      max-width: 1180px;
+      margin: 0 auto 36px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(31px, 5vw, 62px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.78;
+    }
+
+    .ecosystem-band {
+      background:
+        linear-gradient(180deg, rgba(67, 217, 255, 0.08), transparent 52%),
+        #06070b;
+    }
+
+    .ecosystem-grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .map {
+      position: relative;
+      min-height: 520px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 46% 47%, rgba(67, 217, 255, 0.2), transparent 22%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+    }
+
+    .map canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .core {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 144px;
+      height: 144px;
+      transform: translate(-50%, -50%);
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(67, 217, 255, 0.56);
+      border-radius: 999px;
+      background: rgba(6, 7, 11, 0.74);
+      box-shadow: inset 0 0 50px rgba(67, 217, 255, 0.16), 0 0 80px rgba(80, 239, 173, 0.16);
+      text-align: center;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .node {
+      position: absolute;
+      width: 132px;
+      min-height: 72px;
+      padding: 13px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius);
+      background: rgba(8, 13, 22, 0.82);
+      color: var(--text);
+      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.24);
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .node b {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 7px;
+    }
+
+    .node span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .node.active {
+      border-color: var(--green);
+      background: rgba(80, 239, 173, 0.12);
+    }
+
+    .node:nth-of-type(1) { left: 7%; top: 12%; }
+    .node:nth-of-type(2) { right: 8%; top: 10%; }
+    .node:nth-of-type(3) { right: 4%; top: 43%; }
+    .node:nth-of-type(4) { right: 17%; bottom: 9%; }
+    .node:nth-of-type(5) { left: 16%; bottom: 8%; }
+    .node:nth-of-type(6) { left: 4%; top: 48%; }
+
+    .insight-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      padding: 28px;
+      min-height: 520px;
+      display: grid;
+      align-content: space-between;
+    }
+
+    .panel-kicker {
+      color: var(--cyan);
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .insight-panel h3 {
+      margin: 18px 0 12px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.08;
+    }
+
+    .insight-panel p {
+      color: var(--muted);
+      line-height: 1.78;
+      margin: 0;
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .tag {
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #dce6f7;
+      font-size: 12px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .pulse {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .pulse div {
+      min-height: 118px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .pulse strong {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--gold);
+      font-size: 27px;
+    }
+
+    .lab-band {
+      background:
+        linear-gradient(180deg, rgba(255, 122, 111, 0.08), transparent 54%),
+        #08090e;
+    }
+
+    .lab {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 24px;
+    }
+
+    .control-panel,
+    .result-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      padding: 24px;
+    }
+
+    .control-panel label {
+      display: block;
+      margin: 18px 0 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .segmented,
+    .mood-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .chip {
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.055);
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .chip.active {
+      border-color: var(--coral);
+      background: rgba(255, 122, 111, 0.14);
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--green);
+    }
+
+    .result-panel {
+      min-height: 448px;
+      display: grid;
+      align-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .result-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, rgba(67, 217, 255, 0.08), transparent 38%),
+        linear-gradient(300deg, rgba(255, 209, 102, 0.08), transparent 44%);
+      pointer-events: none;
+    }
+
+    .result-panel > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .brief {
+      color: var(--muted);
+      line-height: 1.82;
+      font-size: 18px;
+    }
+
+    .brief strong {
+      color: var(--text);
+    }
+
+    .brief-list {
+      display: grid;
+      gap: 12px;
+      margin: 26px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .brief-list li {
+      padding: 14px 15px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #dce6f7;
+      line-height: 1.58;
+    }
+
+    .trend-band {
+      background: #06070b;
+    }
+
+    .video-band {
+      background:
+        linear-gradient(180deg, rgba(67, 217, 255, 0.07), transparent 56%),
+        #06070b;
+    }
+
+    .reel-grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 18px;
+    }
+
+    .reel-card {
+      min-height: 560px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-rows: 1fr auto;
+    }
+
+    .reel-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .reel-stack .reel-card {
+      min-height: 271px;
+    }
+
+    .reel-visual {
+      position: relative;
+      min-height: 360px;
+      isolation: isolate;
+      overflow: hidden;
+      background:
+        linear-gradient(145deg, rgba(67, 217, 255, 0.16), rgba(80, 239, 173, 0.08)),
+        #0a0d15;
+    }
+
+    .reel-stack .reel-visual {
+      min-height: 170px;
+    }
+
+    .reel-visual video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 1;
+    }
+
+    .reel-visual.has-video video {
+      opacity: 1;
+    }
+
+    .reel-motion {
+      position: absolute;
+      inset: -30%;
+      background:
+        radial-gradient(circle at 28% 26%, rgba(67, 217, 255, 0.7), transparent 20%),
+        radial-gradient(circle at 68% 38%, rgba(255, 122, 111, 0.48), transparent 18%),
+        radial-gradient(circle at 50% 76%, rgba(80, 239, 173, 0.44), transparent 20%),
+        linear-gradient(130deg, rgba(255, 255, 255, 0.08), transparent 44%);
+      filter: blur(18px);
+      animation: reelDrift 9s ease-in-out infinite alternate;
+      z-index: -1;
+    }
+
+    .reel-gridlines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+    }
+
+    .reel-play {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(6, 7, 11, 0.58);
+      backdrop-filter: blur(12px);
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .reel-caption {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      right: 16px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .reel-body {
+      padding: 20px;
+    }
+
+    .reel-body h3 {
+      margin: 0 0 10px;
+      font-size: clamp(23px, 3vw, 34px);
+      line-height: 1.08;
+    }
+
+    .reel-stack .reel-body h3 {
+      font-size: 22px;
+    }
+
+    .reel-body p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .reel-meta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+      color: #dce6f7;
+      font-size: 12px;
+    }
+
+    .reel-meta span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 9px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    @keyframes reelDrift {
+      from {
+        transform: translate3d(-2%, -1%, 0) rotate(0deg) scale(1);
+      }
+      to {
+        transform: translate3d(4%, 3%, 0) rotate(8deg) scale(1.08);
+      }
+    }
+
+    .trend-board {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .trend-card {
+      min-height: 275px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.026)),
+        rgba(12, 18, 30, 0.64);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .trend-card::before {
+      content: attr(data-index);
+      position: absolute;
+      right: 18px;
+      top: 14px;
+      color: rgba(255, 255, 255, 0.1);
+      font-size: 64px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .trend-card h3 {
+      position: relative;
+      margin: 0 0 15px;
+      font-size: 24px;
+    }
+
+    .trend-card p {
+      position: relative;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .mini-chart {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 22px;
+      height: 58px;
+      display: flex;
+      align-items: end;
+      gap: 7px;
+    }
+
+    .mini-chart span {
+      flex: 1;
+      min-width: 8px;
+      border-radius: 4px 4px 0 0;
+      background: linear-gradient(to top, var(--green), var(--cyan));
+      opacity: 0.8;
+    }
+
+    .timeline-band {
+      background:
+        linear-gradient(180deg, rgba(165, 140, 255, 0.08), transparent 48%),
+        #08090e;
+    }
+
+    .tech-band {
+      background:
+        linear-gradient(180deg, rgba(255, 209, 102, 0.08), transparent 44%),
+        linear-gradient(120deg, rgba(67, 217, 255, 0.045), transparent 50%),
+        #06070b;
+    }
+
+    .tech-atlas {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .tech-card {
+      position: relative;
+      min-height: 250px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.026)),
+        rgba(10, 15, 24, 0.72);
+      overflow: hidden;
+    }
+
+    .tech-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, transparent, rgba(67, 217, 255, 0.16), transparent),
+        repeating-linear-gradient(0deg, transparent 0 18px, rgba(255, 255, 255, 0.035) 19px);
+      transform: translateX(-100%);
+      animation: scanLine 5.8s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .tech-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(67, 217, 255, 0.3);
+      border-radius: 8px;
+      color: var(--cyan);
+      background: rgba(67, 217, 255, 0.09);
+      font-weight: 900;
+    }
+
+    .tech-card h3 {
+      position: relative;
+      margin: 18px 0 10px;
+      font-size: 23px;
+      line-height: 1.12;
+    }
+
+    .tech-card p {
+      position: relative;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.66;
+    }
+
+    .tech-readout {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      margin-top: 18px;
+      align-items: center;
+      color: #dce6f7;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .tech-meter {
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+
+    .tech-meter span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--green), var(--cyan), var(--gold));
+    }
+
+    .interface-wall {
+      max-width: 1180px;
+      margin: 18px auto 0;
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 18px;
+    }
+
+    .interface-controls,
+    .interface-display {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      padding: 22px;
+    }
+
+    .interface-controls {
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .interface-button {
+      min-height: 54px;
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.045);
+      color: var(--text);
+      text-align: left;
+      padding: 10px 12px;
+      cursor: pointer;
+    }
+
+    .interface-button span:first-child {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: rgba(80, 239, 173, 0.12);
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    .interface-button.active {
+      border-color: rgba(80, 239, 173, 0.62);
+      background: rgba(80, 239, 173, 0.1);
+    }
+
+    .interface-display {
+      min-height: 380px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .interface-display::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at center, black, transparent 78%);
+    }
+
+    .interface-display > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .interface-display h3 {
+      margin: 18px 0 12px;
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.06;
+    }
+
+    .interface-display p {
+      max-width: 680px;
+      color: var(--muted);
+      line-height: 1.78;
+    }
+
+    .data-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .data-cell {
+      min-height: 92px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.048);
+    }
+
+    .data-cell b {
+      display: block;
+      color: var(--gold);
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    @keyframes scanLine {
+      0%, 22% {
+        transform: translateX(-100%);
+      }
+      58%, 100% {
+        transform: translateX(100%);
+      }
+    }
+
+    .timeline {
+      max-width: 1180px;
+      margin: 0 auto;
+      border-left: 1px solid rgba(67, 217, 255, 0.36);
+      display: grid;
+      gap: 18px;
+    }
+
+    .time-item {
+      position: relative;
+      margin-left: 26px;
+      padding: 20px 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .time-item::before {
+      content: "";
+      position: absolute;
+      left: -35px;
+      top: 24px;
+      width: 17px;
+      height: 17px;
+      border: 2px solid var(--cyan);
+      border-radius: 999px;
+      background: #08090e;
+    }
+
+    .time-item b {
+      color: var(--gold);
+      font-size: 14px;
+    }
+
+    .time-item h3 {
+      margin: 8px 0;
+      font-size: 24px;
+    }
+
+    .time-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .play-band {
+      background:
+        linear-gradient(180deg, rgba(80, 239, 173, 0.06), transparent 58%),
+        #06070b;
+    }
+
+    .playground {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: 24px;
+    }
+
+    .prompt-box {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      padding: 24px;
+    }
+
+    .prompt-box textarea {
+      width: 100%;
+      min-height: 190px;
+      resize: vertical;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      line-height: 1.6;
+      outline: none;
+    }
+
+    .prompt-box textarea:focus {
+      border-color: rgba(67, 217, 255, 0.7);
+    }
+
+    .idea-output {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel-strong);
+      padding: 24px;
+      min-height: 360px;
+    }
+
+    .idea-output h3 {
+      margin: 0 0 16px;
+      font-size: clamp(26px, 4vw, 44px);
+    }
+
+    .idea-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .idea {
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.045);
+      color: #dce6f7;
+      line-height: 1.6;
+    }
+
+    footer {
+      padding: 44px clamp(18px, 5vw, 76px) 60px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      background: #05060a;
+    }
+
+    @media (max-width: 980px) {
+      .topbar {
+        position: absolute;
+      }
+
+      .signal {
+        display: none;
+      }
+
+      .hero {
+        min-height: 88vh;
+        background:
+          linear-gradient(180deg, rgba(6, 7, 11, 0.72), rgba(6, 7, 11, 0.95) 70%, #06070b 100%),
+          url("assets/ai-ecosystem-hero.png") center top / cover no-repeat;
+      }
+
+      .hero-metrics,
+      .ecosystem-grid,
+      .lab,
+      .reel-grid,
+      .interface-wall,
+      .playground,
+      .section-head {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-metrics {
+        margin-top: 0;
+      }
+
+      .metric {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .metric:last-child {
+        border-bottom: 0;
+      }
+
+      .trend-board {
+        grid-template-columns: 1fr;
+      }
+
+      .tech-atlas {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .reel-card,
+      .reel-stack .reel-card {
+        min-height: 420px;
+      }
+
+      .reel-stack .reel-visual {
+        min-height: 260px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        padding-top: 192px;
+      }
+
+      section {
+        padding-top: 70px;
+        padding-bottom: 70px;
+      }
+
+      .map {
+        min-height: 680px;
+      }
+
+      .node {
+        position: relative;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+        width: calc(100% - 32px);
+        margin: 12px 16px;
+      }
+
+      .core {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        margin: 22px auto;
+      }
+
+      .pulse,
+      .segmented,
+      .mood-row,
+      .tech-atlas,
+      .data-row,
+      .idea-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="AI Ecosystem Futures">
+        <span class="brand-mark">AI</span>
+        <span>AI Ecosystem Futures</span>
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#ecosystem">Ecosystem Map</a>
+        <a href="#lab">Trend Lab</a>
+        <a href="#reels">AI Life Reels</a>
+        <a href="#tech">Tech Atlas</a>
+        <a href="#signals">Signals</a>
+        <a href="#play">Idea Lab</a>
+      </nav>
+      <div class="signal">Ecosystem pulse online</div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <div class="eyebrow">AI Ecosystem 2030</div>
+          <h1 id="hero-title">See AI Becoming an Entire World</h1>
+          <p>This is not just a place to explain models, tools, and concepts. It shows AI inside a living ecosystem: creativity, healthcare, education, finance, robotics, cities, climate, and personal life all connecting in real time.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#ecosystem" aria-label="Enter the ecosystem map">↘ Enter Map</a>
+            <a class="btn" href="#play" aria-label="Open the idea lab">✦ Open Lab</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="hero-metrics" aria-label="Website highlights">
+        <div class="metric"><strong>6</strong><span>AI ecosystem domains instead of repeated knowledge blocks</span></div>
+        <div class="metric"><strong>12+</strong><span>Future scenarios and trend signals for fast understanding</span></div>
+        <div class="metric"><strong>3</strong><span>Interactive modules that let visitors participate</span></div>
+        <div class="metric"><strong>∞</strong><span>Expandable into news, tools, case studies, and courses</span></div>
+      </div>
+
+      <section class="ecosystem-band" id="ecosystem">
+        <div class="section-head">
+          <h2>From a Knowledge Site to an AI Ecosystem Gateway</h2>
+          <p>The core idea shifts from "what AI is" to "what AI is connecting." Visitors can explore ecosystem nodes and see AI's role, opportunities, and playful applications across industries.</p>
+        </div>
+
+        <div class="ecosystem-grid">
+          <div class="map" aria-label="AI ecosystem map">
+            <canvas id="networkCanvas"></canvas>
+            <div class="core">AI<br>Ecosystem Core</div>
+            <button class="node active" data-node="creative"><b>Creative Engine</b><span>Images, video, music, stories</span></button>
+            <button class="node" data-node="health"><b>Health Intelligence</b><span>Screening, care, drug discovery</span></button>
+            <button class="node" data-node="robotics"><b>Embodied AI</b><span>Robots, devices, factories</span></button>
+            <button class="node" data-node="finance"><b>Financial Signals</b><span>Risk, research, trading support</span></button>
+            <button class="node" data-node="education"><b>Personal Learning</b><span>AI tutors, paths, feedback</span></button>
+            <button class="node" data-node="climate"><b>Planetary Systems</b><span>Energy, climate, city orchestration</span></button>
+          </div>
+
+          <aside class="insight-panel" aria-live="polite">
+            <div>
+              <div class="panel-kicker" id="nodeKicker">Creative Engine</div>
+              <h3 id="nodeTitle">Creation Is Moving From Tool to Co-Author</h3>
+              <p id="nodeText">AI is no longer just generating an image or a line of copy. It is entering scripts, storyboards, sound, editing, and distribution. Future creators act more like directors, orchestrating teams of collaborative agents.</p>
+              <div class="tags" id="nodeTags">
+                <span class="tag">Multimodal Content</span>
+                <span class="tag">AI Character Studio</span>
+                <span class="tag">Personal Media Factory</span>
+              </div>
+            </div>
+            <div class="pulse">
+              <div><strong id="pulseA">87</strong><span>Ecosystem Heat</span></div>
+              <div><strong id="pulseB">64</strong><span>Market Maturity</span></div>
+              <div><strong id="pulseC">91</strong><span>Play Factor</span></div>
+              <div><strong id="pulseD">72</strong><span>Future Impact</span></div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="lab-band" id="lab">
+        <div class="section-head">
+          <h2>Trend Lab: Tune the Shape of the Future</h2>
+          <p>Replace repetitive explanation with interaction. Visitors choose a domain, a mood, and an automation level, then the page generates a future scenario instantly.</p>
+        </div>
+
+        <div class="lab">
+          <div class="control-panel">
+            <div class="panel-kicker">Scenario Mixer</div>
+            <label>Choose a domain</label>
+            <div class="segmented" id="domainChips">
+              <button class="chip active" data-value="City">City</button>
+              <button class="chip" data-value="Personal">Personal</button>
+              <button class="chip" data-value="Enterprise">Enterprise</button>
+            </div>
+
+            <label>Choose a mood</label>
+            <div class="mood-row" id="moodChips">
+              <button class="chip active" data-value="warm">Warm</button>
+              <button class="chip" data-value="efficient">Efficient</button>
+              <button class="chip" data-value="adventurous">Adventurous</button>
+            </div>
+
+            <label for="autonomy">Agent autonomy <span id="autonomyValue">62</span>%</label>
+            <input id="autonomy" type="range" min="10" max="95" value="62">
+
+            <button class="btn primary" id="mixBtn" type="button" style="margin-top: 22px; width: 100%;">↻ Generate Future Fragment</button>
+          </div>
+
+          <div class="result-panel">
+            <div>
+              <div class="panel-kicker">Generated Future Fragment</div>
+              <p class="brief" id="briefText"></p>
+              <ul class="brief-list" id="briefList"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="video-band" id="reels">
+        <div class="section-head">
+          <h2>AI Life Reels</h2>
+          <p>Short, vertical stories make the ecosystem feel closer to everyday life: a morning assistant, an adaptive home, a personal learning coach, and health signals that people can actually imagine using.</p>
+        </div>
+
+        <div class="reel-grid">
+          <article class="reel-card">
+            <div class="reel-visual">
+              <video muted loop playsinline controls preload="metadata" poster="assets/ai-ecosystem-hero.png">
+                <source src="assets/videos/ai-life-morning.webm" type="video/webm">
+                <source src="assets/videos/ai-life-morning.mp4" type="video/mp4">
+              </video>
+              <div class="reel-motion"></div>
+              <div class="reel-gridlines"></div>
+              <div class="reel-caption"><span>Daily AI</span><span>00:24</span></div>
+              <button class="reel-play" type="button" aria-label="Play daily AI reel">▶</button>
+            </div>
+            <div class="reel-body">
+              <h3>A Morning Planned by AI</h3>
+              <p>Calendar, weather, commute, breakfast, and priority tasks combine into one calm briefing before the day begins.</p>
+              <div class="reel-meta"><span>Smart routine</span><span>Personal agent</span><span>Life automation</span></div>
+            </div>
+          </article>
+
+          <div class="reel-stack">
+            <article class="reel-card">
+              <div class="reel-visual">
+                <video muted loop playsinline controls preload="metadata" poster="assets/ai-ecosystem-hero.png">
+                  <source src="assets/videos/ai-life-home.webm" type="video/webm">
+                  <source src="assets/videos/ai-life-home.mp4" type="video/mp4">
+                </video>
+                <div class="reel-motion"></div>
+                <div class="reel-gridlines"></div>
+                <div class="reel-caption"><span>Smart Home</span><span>00:18</span></div>
+                <button class="reel-play" type="button" aria-label="Play smart home reel">▶</button>
+              </div>
+              <div class="reel-body">
+                <h3>The Home That Learns</h3>
+                <p>Lighting, energy, security, and entertainment adapt quietly to the people inside.</p>
+                <div class="reel-meta"><span>Ambient AI</span><span>Energy aware</span></div>
+              </div>
+            </article>
+
+            <article class="reel-card">
+              <div class="reel-visual">
+                <video muted loop playsinline controls preload="metadata" poster="assets/ai-ecosystem-hero.png">
+                  <source src="assets/videos/ai-life-learning-health.webm" type="video/webm">
+                  <source src="assets/videos/ai-life-learning-health.mp4" type="video/mp4">
+                </video>
+                <div class="reel-motion"></div>
+                <div class="reel-gridlines"></div>
+                <div class="reel-caption"><span>Learning + Health</span><span>00:21</span></div>
+                <button class="reel-play" type="button" aria-label="Play learning and health reel">▶</button>
+              </div>
+              <div class="reel-body">
+                <h3>A Coach for Body and Mind</h3>
+                <p>AI connects sleep, practice, study goals, and recovery into one personal feedback loop.</p>
+                <div class="reel-meta"><span>AI tutor</span><span>Wellness signals</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="tech-band" id="tech">
+        <div class="section-head">
+          <h2>AI Tech Atlas</h2>
+          <p>A stronger AI future site should not only show applications. It should reveal the deeper technology layers powering them: models, chips, robotics, spatial interfaces, cybersecurity, and frontier science.</p>
+        </div>
+
+        <div class="tech-atlas">
+          <article class="tech-card">
+            <div class="tech-icon">LLM</div>
+            <h3>Foundation Models</h3>
+            <p>Large language and multimodal models become the reasoning layer behind agents, search, design, coding, and decision support.</p>
+            <div class="tech-readout"><div class="tech-meter"><span style="width: 92%"></span></div><span>Capability 92</span></div>
+          </article>
+          <article class="tech-card">
+            <div class="tech-icon">GPU</div>
+            <h3>AI Chips and Compute</h3>
+            <p>GPUs, NPUs, edge accelerators, and cloud clusters form the invisible engine that decides what AI products can do at scale.</p>
+            <div class="tech-readout"><div class="tech-meter"><span style="width: 88%"></span></div><span>Scale 88</span></div>
+          </article>
+          <article class="tech-card">
+            <div class="tech-icon">BOT</div>
+            <h3>Robotics and Embodiment</h3>
+            <p>When models learn action, AI moves from screens into warehouses, factories, homes, vehicles, and assistive machines.</p>
+            <div class="tech-readout"><div class="tech-meter"><span style="width: 81%"></span></div><span>Motion 81</span></div>
+          </article>
+          <article class="tech-card">
+            <div class="tech-icon">XR</div>
+            <h3>Spatial Interfaces</h3>
+            <p>AR glasses, 3D dashboards, and ambient displays make AI feel less like a chatbot and more like a layer over the world.</p>
+            <div class="tech-readout"><div class="tech-meter"><span style="width: 74%"></span></div><span>Immersion 74</span></div>
+          </article>
+          <article class="tech-card">
+            <div class="tech-icon">SEC</div>
+            <h3>AI Cybersecurity</h3>
+            <p>AI creates new attack surfaces, but also gives defenders faster anomaly detection, code review, identity checks, and threat simulation.</p>
+            <div class="tech-readout"><div class="tech-meter"><span style="width: 86%"></span></div><span>Defense 86</span></div>
+          </article>
+          <article class="tech-card">
+            <div class="tech-icon">Q</div>
+            <h3>Frontier Science</h3>
+            <p>AI accelerates materials discovery, biology, climate modeling, simulations, and future intersections with quantum computing.</p>
+            <div class="tech-readout"><div class="tech-meter"><span style="width: 79%"></span></div><span>Discovery 79</span></div>
+          </article>
+        </div>
+
+        <div class="interface-wall">
+          <div class="interface-controls">
+            <div class="panel-kicker">Future Interface Wall</div>
+            <button class="interface-button active" type="button" data-interface="agent"><span>A</span><span>Agent Command Center</span></button>
+            <button class="interface-button" type="button" data-interface="city"><span>C</span><span>City Digital Twin</span></button>
+            <button class="interface-button" type="button" data-interface="lab"><span>L</span><span>AI Research Lab</span></button>
+            <button class="interface-button" type="button" data-interface="creator"><span>M</span><span>Multimodal Studio</span></button>
+          </div>
+
+          <div class="interface-display" aria-live="polite">
+            <div class="panel-kicker" id="interfaceKicker">Agentic Systems</div>
+            <h3 id="interfaceTitle">A control room for AI agents</h3>
+            <p id="interfaceText">Visitors can imagine a future where AI agents research, plan, design, code, review, and report progress through one transparent command center.</p>
+            <div class="data-row">
+              <div class="data-cell"><b id="dataA">24/7</b><span>autonomous monitoring</span></div>
+              <div class="data-cell"><b id="dataB">8x</b><span>parallel task handling</span></div>
+              <div class="data-cell"><b id="dataC">Human</b><span>final approval layer</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trend-band" id="signals">
+        <div class="section-head">
+          <h2>AI Trend Signals Worth Watching</h2>
+          <p>The content is split into complementary angles: model capability, application entry points, infrastructure, risk governance, business models, and human-AI relationships.</p>
+        </div>
+
+        <div class="trend-board">
+          <article class="trend-card" data-index="01">
+            <h3>AI Agents Become the New Interface</h3>
+            <p>AI is moving from chat windows to task execution, connecting files, browsers, databases, payments, and enterprise systems.</p>
+            <div class="mini-chart"><span style="height:36%"></span><span style="height:48%"></span><span style="height:58%"></span><span style="height:72%"></span><span style="height:86%"></span></div>
+          </article>
+          <article class="trend-card" data-index="02">
+            <h3>Multimodal Becomes the Default</h3>
+            <p>Text, images, audio, video, and spatial data will be understood together, enabling richer visual and experiential content.</p>
+            <div class="mini-chart"><span style="height:42%"></span><span style="height:54%"></span><span style="height:61%"></span><span style="height:80%"></span><span style="height:92%"></span></div>
+          </article>
+          <article class="trend-card" data-index="03">
+            <h3>Small Models Move Into Devices</h3>
+            <p>Phones, computers, vehicles, and robots will gain local intelligence, turning AI from a cloud service into an ambient capability.</p>
+            <div class="mini-chart"><span style="height:26%"></span><span style="height:38%"></span><span style="height:60%"></span><span style="height:76%"></span><span style="height:88%"></span></div>
+          </article>
+          <article class="trend-card" data-index="04">
+            <h3>AI Content Needs a Trust Layer</h3>
+            <p>Watermarking, provenance, fact checking, and rights management will become basic infrastructure for content ecosystems.</p>
+            <div class="mini-chart"><span style="height:30%"></span><span style="height:44%"></span><span style="height:62%"></span><span style="height:70%"></span><span style="height:82%"></span></div>
+          </article>
+          <article class="trend-card" data-index="05">
+            <h3>Domain Knowledge Becomes the Moat</h3>
+            <p>The most valuable AI products are not just model wrappers. They accumulate workflows, data, feedback loops, and delivery capability.</p>
+            <div class="mini-chart"><span style="height:40%"></span><span style="height:50%"></span><span style="height:68%"></span><span style="height:74%"></span><span style="height:90%"></span></div>
+          </article>
+          <article class="trend-card" data-index="06">
+            <h3>Humans Become Orchestrators</h3>
+            <p>The key skill is no longer memorizing everything. It is asking better questions, judging outputs, and coordinating intelligent systems.</p>
+            <div class="mini-chart"><span style="height:34%"></span><span style="height:52%"></span><span style="height:64%"></span><span style="height:81%"></span><span style="height:91%"></span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="timeline-band">
+        <div class="section-head">
+          <h2>The Future Is Not One Date, But a Set of Approaching Scenarios</h2>
+          <p>This timeline avoids vague prediction and turns AI's impact into concrete scenes visitors can imagine.</p>
+        </div>
+        <div class="timeline">
+          <article class="time-item">
+            <b>Now to 2027</b>
+            <h3>Everyone Gets a Work Copilot</h3>
+            <p>AI helps organize research, draft content, analyze spreadsheets, and summarize meetings, while humans keep final judgment.</p>
+          </article>
+          <article class="time-item">
+            <b>2027 to 2029</b>
+            <h3>Agent Teams Enter Everyday Workflows</h3>
+            <p>A single goal is split across AI roles: researcher, designer, engineer, reviewer, and operations assistant working together.</p>
+          </article>
+          <article class="time-item">
+            <b>After 2029</b>
+            <h3>AI Ecosystems Become Operating Systems for Cities and Industries</h3>
+            <p>Transportation, energy, healthcare, finance, education, and creative industries connect through real-time data and intelligent orchestration.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="play-band" id="play">
+        <div class="section-head">
+          <h2>AI Idea Lab</h2>
+          <p>This is the playful entry point: visitors enter a simple idea, and the page turns it into a more futuristic AI project concept.</p>
+        </div>
+        <div class="playground">
+          <div class="prompt-box">
+            <div class="panel-kicker">Idea Transformer</div>
+            <label for="ideaInput" style="display:block; margin:16px 0 8px; color: var(--muted);">Enter an idea</label>
+            <textarea id="ideaInput">I want to build a website that helps people understand AI trends</textarea>
+            <button class="btn primary" id="ideaBtn" type="button" style="margin-top: 14px; width: 100%;">✦ Transform Into a Future Project</button>
+          </div>
+          <div class="idea-output" aria-live="polite">
+            <div class="panel-kicker">Transformed Concept</div>
+            <h3 id="ideaTitle">AI Trend Navigation Deck</h3>
+            <p id="ideaText" class="brief">Turn ordinary trend content into an explorable AI ecosystem space where visitors can click industry nodes, tune future variables, collect scenario cards, and generate their own AI learning path.</p>
+            <div class="idea-grid" id="ideaGrid">
+              <div class="idea">Entry: an immersive ecosystem map instead of a list of articles.</div>
+              <div class="idea">Interaction: a trend mixer, idea generator, and future scenario cards.</div>
+              <div class="idea">Value: help visitors quickly understand how AI relates to them.</div>
+              <div class="idea">Expansion: later connect news, case libraries, tool rankings, and courses.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>AI Ecosystem Futures · A more imaginative prototype for an AI trends website</span>
+      <span>Built as a single-page interactive experience</span>
+    </footer>
+  </div>
+
+  <script>
+    const nodeData = {
+      creative: {
+        kicker: "Creative Engine",
+        title: "Creation Is Moving From Tool to Co-Author",
+        text: "AI is no longer just generating an image or a line of copy. It is entering scripts, storyboards, sound, editing, and distribution. Future creators act more like directors, orchestrating teams of collaborative agents.",
+        tags: ["Multimodal Content", "AI Character Studio", "Personal Media Factory"],
+        pulse: [87, 64, 91, 72]
+      },
+      health: {
+        kicker: "Health Intelligence",
+        title: "Healthcare AI Becomes a Long-Term Health Radar",
+        text: "It expands from one-time diagnosis to continuous monitoring, risk alerts, imaging support, and drug discovery. The point is not to replace doctors, but to make care earlier, finer, and more personalized.",
+        tags: ["Early Screening", "AI Companionship", "Drug Discovery"],
+        pulse: [78, 70, 66, 95]
+      },
+      robotics: {
+        kicker: "Embodied AI",
+        title: "Models Begin Entering the Physical World",
+        text: "When AI understands vision, voice, movement, and environment, it stops being only a screen-based assistant and moves into robots, autonomous devices, warehouses, agriculture, and homes.",
+        tags: ["Embodied Intelligence", "Spatial Understanding", "Automated Collaboration"],
+        pulse: [82, 58, 88, 93]
+      },
+      finance: {
+        kicker: "Financial Signals",
+        title: "Finance Becomes a Real-Time Signal Network",
+        text: "AI can organize information, identify risk, support research, and simulate strategies. The closer it gets to asset decisions, the more it needs transparent boundaries, explainable workflows, and human review.",
+        tags: ["Research Assistant", "Risk Radar", "Strategy Simulation"],
+        pulse: [74, 76, 61, 80]
+      },
+      education: {
+        kicker: "Personal Learning",
+        title: "Learning Paths Reconfigure Around Each Person",
+        text: "AI tutors can understand a learner's pace, error patterns, and interests, then break knowledge into personalized practice, feedback, and project tasks.",
+        tags: ["AI Tutor", "Personalized Practice", "Project-Based Learning"],
+        pulse: [80, 68, 84, 89]
+      },
+      climate: {
+        kicker: "Planetary Systems",
+        title: "AI Becomes the Dashboard for Cities and Planetary Systems",
+        text: "Energy orchestration, climate simulation, traffic flows, disaster alerts, and resource allocation can live inside one intelligent system, making a complex world more observable.",
+        tags: ["Climate Simulation", "Energy Orchestration", "City Sensing"],
+        pulse: [69, 54, 73, 96]
+      }
+    };
+
+    const nodes = document.querySelectorAll(".node");
+    const nodeKicker = document.getElementById("nodeKicker");
+    const nodeTitle = document.getElementById("nodeTitle");
+    const nodeText = document.getElementById("nodeText");
+    const nodeTags = document.getElementById("nodeTags");
+    const pulseIds = ["pulseA", "pulseB", "pulseC", "pulseD"].map((id) => document.getElementById(id));
+
+    function setNode(key) {
+      const data = nodeData[key];
+      nodeKicker.textContent = data.kicker;
+      nodeTitle.textContent = data.title;
+      nodeText.textContent = data.text;
+      nodeTags.innerHTML = data.tags.map((tag) => `<span class="tag">${tag}</span>`).join("");
+      data.pulse.forEach((value, index) => {
+        pulseIds[index].textContent = value;
+      });
+      nodes.forEach((node) => node.classList.toggle("active", node.dataset.node === key));
+    }
+
+    nodes.forEach((node) => {
+      node.addEventListener("click", () => setNode(node.dataset.node));
+    });
+
+    const canvas = document.getElementById("networkCanvas");
+    const ctx = canvas.getContext("2d");
+    let particles = [];
+
+    function resizeCanvas() {
+      const rect = canvas.getBoundingClientRect();
+      const scale = window.devicePixelRatio || 1;
+      canvas.width = rect.width * scale;
+      canvas.height = rect.height * scale;
+      ctx.setTransform(scale, 0, 0, scale, 0, 0);
+      particles = Array.from({ length: 42 }, () => ({
+        x: Math.random() * rect.width,
+        y: Math.random() * rect.height,
+        vx: (Math.random() - 0.5) * 0.42,
+        vy: (Math.random() - 0.5) * 0.42,
+        r: 1.2 + Math.random() * 2.2
+      }));
+    }
+
+    function drawNetwork() {
+      const rect = canvas.getBoundingClientRect();
+      ctx.clearRect(0, 0, rect.width, rect.height);
+      ctx.lineWidth = 1;
+
+      particles.forEach((p) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0 || p.x > rect.width) p.vx *= -1;
+        if (p.y < 0 || p.y > rect.height) p.vy *= -1;
+      });
+
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const a = particles[i];
+          const b = particles[j];
+          const distance = Math.hypot(a.x - b.x, a.y - b.y);
+          if (distance < 120) {
+            ctx.strokeStyle = `rgba(67, 217, 255, ${0.22 - distance / 700})`;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      particles.forEach((p) => {
+        ctx.fillStyle = "rgba(80, 239, 173, 0.78)";
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      requestAnimationFrame(drawNetwork);
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+    drawNetwork();
+
+    document.querySelectorAll(".reel-visual").forEach((visual) => {
+      const video = visual.querySelector("video");
+      const button = visual.querySelector(".reel-play");
+      video?.addEventListener("loadeddata", () => {
+        visual.classList.add("has-video");
+        video.play().catch(() => {});
+      });
+      button?.addEventListener("click", () => {
+        if (video && visual.classList.contains("has-video")) {
+          if (video.paused) {
+            video.play().catch(() => {});
+            button.textContent = "Ⅱ";
+          } else {
+            video.pause();
+            button.textContent = "▶";
+          }
+          return;
+        }
+        visual.animate(
+          [
+            { transform: "scale(1)" },
+            { transform: "scale(1.015)" },
+            { transform: "scale(1)" }
+          ],
+          { duration: 420, easing: "ease-out" }
+        );
+      });
+    });
+
+    const interfaceData = {
+      agent: {
+        kicker: "Agentic Systems",
+        title: "A control room for AI agents",
+        text: "Visitors can imagine a future where AI agents research, plan, design, code, review, and report progress through one transparent command center.",
+        stats: ["24/7", "8x", "Human"],
+        labels: ["autonomous monitoring", "parallel task handling", "final approval layer"]
+      },
+      city: {
+        kicker: "Urban Intelligence",
+        title: "A digital twin for living cities",
+        text: "Traffic, energy, weather, public safety, mobility, and emergency response are simulated in real time so city teams can test decisions before they affect people.",
+        stats: ["Real-time", "6 layers", "Predictive"],
+        labels: ["city sensing", "urban systems", "risk simulation"]
+      },
+      lab: {
+        kicker: "Scientific Discovery",
+        title: "An AI lab that explores faster",
+        text: "Models help scientists screen materials, compare biology pathways, generate hypotheses, and run simulations before expensive physical experiments begin.",
+        stats: ["10k+", "Model-led", "Validated"],
+        labels: ["candidate scans", "hypothesis generation", "human review"]
+      },
+      creator: {
+        kicker: "Creative Technology",
+        title: "A multimodal studio for everyone",
+        text: "Text, image, video, sound, voice, and 3D assets become one creative workspace where people direct AI systems like a production team.",
+        stats: ["Text+Video", "Voice", "3D"],
+        labels: ["story generation", "audio direction", "interactive assets"]
+      }
+    };
+
+    const interfaceButtons = document.querySelectorAll(".interface-button");
+    const interfaceKicker = document.getElementById("interfaceKicker");
+    const interfaceTitle = document.getElementById("interfaceTitle");
+    const interfaceText = document.getElementById("interfaceText");
+    const dataCells = [
+      [document.getElementById("dataA"), document.querySelector(".data-cell:nth-child(1) span")],
+      [document.getElementById("dataB"), document.querySelector(".data-cell:nth-child(2) span")],
+      [document.getElementById("dataC"), document.querySelector(".data-cell:nth-child(3) span")]
+    ];
+
+    interfaceButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const data = interfaceData[button.dataset.interface];
+        interfaceButtons.forEach((item) => item.classList.toggle("active", item === button));
+        interfaceKicker.textContent = data.kicker;
+        interfaceTitle.textContent = data.title;
+        interfaceText.textContent = data.text;
+        dataCells.forEach(([value, label], index) => {
+          value.textContent = data.stats[index];
+          label.textContent = data.labels[index];
+        });
+      });
+    });
+
+    const domainChips = document.getElementById("domainChips");
+    const moodChips = document.getElementById("moodChips");
+    const autonomy = document.getElementById("autonomy");
+    const autonomyValue = document.getElementById("autonomyValue");
+    const briefText = document.getElementById("briefText");
+    const briefList = document.getElementById("briefList");
+
+    function activeValue(group) {
+      return group.querySelector(".active").dataset.value;
+    }
+
+    function wireChips(group) {
+      group.querySelectorAll(".chip").forEach((chip) => {
+        chip.addEventListener("click", () => {
+          group.querySelectorAll(".chip").forEach((item) => item.classList.remove("active"));
+          chip.classList.add("active");
+          updateBrief();
+        });
+      });
+    }
+
+    function updateBrief() {
+      const domain = activeValue(domainChips);
+      const mood = activeValue(moodChips);
+      const level = Number(autonomy.value);
+      autonomyValue.textContent = level;
+      const role = level > 72 ? "autonomous agent team" : level > 42 ? "collaborative AI assistant" : "low-intervention smart tool";
+      briefText.innerHTML = `<strong>${domain}-level AI future fragment:</strong> A ${mood} system is running. Its ${role} proposes actions from real-time data while humans handle values, boundaries, and final confirmation.`;
+      briefList.innerHTML = [
+        `${domain} data is organized into visual pulses, and abnormal signals are flagged early.`,
+        `The ${mood} experience layer translates complex decisions into choices ordinary people can understand.`,
+        `${level}% autonomy means AI can execute parts of the workflow, while key checkpoints still require human confirmation.`
+      ].map((item) => `<li>${item}</li>`).join("");
+    }
+
+    wireChips(domainChips);
+    wireChips(moodChips);
+    autonomy.addEventListener("input", updateBrief);
+    document.getElementById("mixBtn").addEventListener("click", updateBrief);
+    updateBrief();
+
+    const ideaInput = document.getElementById("ideaInput");
+    const ideaTitle = document.getElementById("ideaTitle");
+    const ideaText = document.getElementById("ideaText");
+    const ideaGrid = document.getElementById("ideaGrid");
+
+    function transformIdea() {
+      const raw = ideaInput.value.trim() || "an AI trends website";
+      const clean = raw.replace(/[。！？!?]+$/g, "");
+      ideaTitle.textContent = `${clean.slice(0, 24)} · Future Edition`;
+      ideaText.textContent = `Upgrade "${clean}" into an explorable AI ecosystem experience. It should not only display content, but also help visitors see how AI connects to the real world through maps, variables, scenarios, and cases.`;
+      ideaGrid.innerHTML = [
+        `Entry design: use an immersive ecosystem map instead of a plain list.`,
+        `Interaction model: add a trend mixer so visitors can generate their own future scenarios.`,
+        `Content structure: each section should solve one distinct question to avoid repetition.`,
+        `Growth path: later connect tool rankings, case libraries, course paths, and community discussions.`
+      ].map((item) => `<div class="idea">${item}</div>`).join("");
+    }
+
+    document.getElementById("ideaBtn").addEventListener("click", transformIdea);
+  </script>
+</body>
+</html>
